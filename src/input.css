@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html{scroll-behavior:smooth}
+  h1,h2{text-wrap:balance}
+  html,body{margin:0;padding:0}
+  body{overscroll-behavior:none}
+  ::-webkit-scrollbar{display:none}
+  section[id]{scroll-margin-top:5rem}
+  .js .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+  .js .reveal.in{opacity:1;transform:none}
+  .fade-swap{transition:opacity .35s ease}
+  .line-in{animation:lineIn .35s ease-out both}
+  @keyframes lineIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  input[type=range]{accent-color:#0d9488}
+}
+
+/* ---------- Phones & tablets only (desktop ≥1024px untouched) ---------- */
+@media (max-width: 1023px) {
+  /* 11px labels are hard to read on phones and tablets */
+  .text-label-sm{font-size:12px;line-height:16px}
+  /* Bigger slider hit area + thumb for touch */
+  input[type=range]{height:40px;background:transparent!important;-webkit-appearance:none;appearance:none}
+  input[type=range]::-webkit-slider-runnable-track{height:8px;border-radius:9999px;background:#e2e8f0}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;margin-top:-9px;border-radius:9999px;background:#0d9488;border:3px solid #fff;box-shadow:0 1px 4px rgba(15,23,42,.3)}
+  input[type=range]::-moz-range-track{height:8px;border-radius:9999px;background:#e2e8f0}
+  input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:9999px;background:#0d9488;border:3px solid #fff;box-shadow:0 1px 4px rgba(15,23,42,.3)}
+}
+@media (max-width: 639px) {
+  /* Integrations strip (inline-styled) */
+  #integrations{padding:28px 0!important}
+  #integrations > div{padding:0 20px!important}
+  #integrations > div > div{font-size:16px!important;line-height:24px!important;gap:10px 22px!important}
+}
+@media (max-width: 639px) {
+  /* Carousel slides sit off-screen horizontally, so skip the scroll-reveal fade */
+  #features-track .reveal{opacity:1;transform:none}
+  #features-track{scrollbar-width:none}
+  #features-track::-webkit-scrollbar{display:none}
+}

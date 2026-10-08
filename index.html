@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Receptionist for Dental Clinics | 24/7 Answering Service | Dentivoice</title>
+<meta name="description" content="Dentivoice is an AI receptionist for dental clinics. It answers every patient call 24/7, books appointments, and triages emergencies. Book a free demo.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0f172a">
+<!-- TODO: set these once the site has a domain (absolute URLs are required for canonical + social previews) -->
+<!-- <link rel="canonical" href="https://YOUR-DOMAIN/"> -->
+<!-- <meta property="og:url" content="https://YOUR-DOMAIN/"> -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dentivoice">
+<meta property="og:title" content="Dentivoice: AI Receptionist for Dental Clinics">
+<meta property="og:description" content="Never miss a patient call again. 24/7 AI phone answering that books appointments and triages dental emergencies. Book a free demo.">
+<meta property="og:image" content="assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dentivoice: AI Receptionist for Dental Clinics">
+<meta name="twitter:description" content="24/7 AI phone answering for dental clinics. Books appointments, triages emergencies, answers insurance questions.">
+<meta name="twitter:image" content="assets/og-image.png">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ4g5UY9l-33DKDKbnWE1OiOZVafT5dqyHDss3eEQiey3i3KSrO1lSsoLVkkbG4MGkSHrwFcmtY5UwtZ0hnKOwQJ_3ePfPMmG1Aladd51GnDs9R3LWJx2zly2rGPRHFZzKNB-WkMTa7bhN3DUpgT5yQhs5qxRW3rrIRd19qB99bY5xmFfBJb-DFu2qvBWOiDYVVmN2o_Oy6X0k4zeutVyxaEs34r1QUenZ6o8ZUH7uyNI-J7dH53gE" fetchpriority="high">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&icon_names=add,arrow_forward,arrow_upward,calculate,calendar_month,call,chat,check_circle,chevron_left,chevron_right,close,description,emergency,event_available,groups,health_and_safety,help,menu,pause,payments,person,phone_in_talk,play_arrow,play_circle,progress_activity,record_voice_over,redeem,replay,schedule,summarize,support_agent,sync,task_alt,verified,verified_user,work&display=block">
+<!-- Compiled from src/input.css + tailwind.config.js. Rebuild after editing classes: npx tailwindcss@3 -i src/input.css -o assets/styles.css --minify -->
+<link rel="stylesheet" href="assets/styles.css?v=17">
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Dentivoice",
+ "applicationCategory": "BusinessApplication",
+ "operatingSystem": "Web, Phone",
+ "description": "AI receptionist and 24/7 answering service for dental clinics. Answers patient calls, books and reschedules appointments, triages dental emergencies, and answers insurance questions.",
+ "image": "assets/logo-full.png",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD",
+  "description": "Free missed-call audit"
+ },
+ "audience": {
+  "@type": "BusinessAudience",
+  "audienceType": "Dental clinics and dental practices"
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Will patients know they're talking to an AI receptionist?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Dentivoice introduces itself as the clinic's virtual assistant. The voice is warm and natural, there's no phone-tree menu, and callers get an instant answer instead of voicemail. Most patients care far more about getting booked than who picks up."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does it replace my front desk team?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. It handles overflow, lunch-hour, and after-hours calls, plus repetitive questions, so your team can focus on the patients in the chair and at the counter."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What happens if the AI can't answer a question?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It transfers the call to your staff, or takes a detailed message and sends it to your team right away. You decide the rules for when a human takes over."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does it work with Dentrix, Eaglesoft, or Open Dental?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Dentivoice books into your calendar from day one. Direct integration with Dentrix, Eaglesoft, Open Dental, and other practice management software is available. We'll confirm what works for your setup on the demo call."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How does it handle dental emergencies?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It asks screening questions about pain, swelling, and bleeding, books urgent slots when available, and alerts your on-call dentist for serious cases. Anyone describing a medical emergency is told to call 911."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How is patient information protected?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Dentivoice is built for HIPAA workflows. We'll walk you through exactly how call data is stored, secured, and accessed on your demo call."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How much does it cost?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A flat monthly fee based on your call volume. Every clinic starts with a free missed-call audit, with no contract."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How long does setup take?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "About 2 to 3 weeks. We learn your hours, services, providers, and insurance panels, build your custom voice agent, and you simply forward your calls."
+   }
+  }
+ ]
+}
+</script>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+
+<header class="fixed top-0 left-0 w-full z-50 bg-inverse-surface/95 backdrop-blur-xl border-b border-inverse-on-surface/10 shadow-[0_4px_20px_rgba(15,23,42,0.25)]">
+  <div class="h-20 max-w-7xl mx-auto px-gutter lg:px-margin flex items-center justify-between gap-space-md">
+    <a class="flex items-center gap-space-sm shrink-0" href="#" aria-label="Dentivoice home">
+      <span class="w-10 h-10 rounded-xl bg-surface-container-lowest flex items-center justify-center shadow-sm"><img src="assets/logo-icon.png" alt="" width="28" height="23" class="w-7 h-auto"></span>
+      <span class="font-headline-sm text-[23px] leading-none font-bold tracking-[-0.03em] text-inverse-on-surface">Denti<span class="text-primary-fixed-dim">voice</span></span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-space-md xl:gap-space-lg">
+      <a class="font-label-lg text-label-lg text-inverse-on-surface/70 hover:text-primary-fixed transition-colors" href="#features">Features</a>
+      <a class="font-label-lg text-label-lg text-inverse-on-surface/70 hover:text-primary-fixed transition-colors" href="#integrations">Integrations</a>
+      <a class="font-label-lg text-label-lg text-inverse-on-surface/70 hover:text-primary-fixed transition-colors" href="#audio-demo">Audio Demos</a>
+      <a class="font-label-lg text-label-lg text-inverse-on-surface/70 hover:text-primary-fixed transition-colors" href="#roi-calculator">ROI Calculator</a>
+      <a class="font-label-lg text-label-lg text-inverse-on-surface/70 hover:text-primary-fixed transition-colors" href="#faq">FAQ</a>
+    </nav>
+    <div class="flex items-center gap-space-sm shrink-0">
+      <a class="max-sm:hidden inline-flex items-center justify-center font-label-lg text-label-lg bg-primary-container text-on-primary hover:bg-primary-fixed-dim hover:text-on-primary-fixed px-space-lg py-space-sm max-lg:py-2.5 rounded-lg shadow-[0_4px_14px_rgba(20,184,166,0.45)] transition-all active:scale-[0.98]" href="#demo-form">Book a Free Demo</a>
+      <button class="lg:hidden w-11 h-11 -mr-1.5 overflow-hidden inline-flex items-center justify-center rounded-lg text-inverse-on-surface hover:bg-inverse-on-surface/10 transition-colors" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span class="material-symbols-outlined text-[28px]" id="menu-icon">menu</span></button>
+    </div>
+  </div>
+  <!-- Mobile / tablet menu -->
+  <nav class="lg:hidden hidden border-t border-inverse-on-surface/10 max-h-[calc(100dvh-5rem)] overflow-y-auto" id="mobile-menu" aria-label="Mobile">
+    <div class="max-w-7xl mx-auto px-gutter pt-space-xs pb-space-lg">
+      <a class="mobile-link flex items-center justify-between min-h-[52px] border-b border-inverse-on-surface/10 font-headline-sm text-[17px] font-semibold text-inverse-on-surface" href="#features">Features<span class="material-symbols-outlined text-[20px] text-inverse-on-surface/40">chevron_right</span></a>
+      <a class="mobile-link flex items-center justify-between min-h-[52px] border-b border-inverse-on-surface/10 font-headline-sm text-[17px] font-semibold text-inverse-on-surface" href="#integrations">Integrations<span class="material-symbols-outlined text-[20px] text-inverse-on-surface/40">chevron_right</span></a>
+      <a class="mobile-link flex items-center justify-between min-h-[52px] border-b border-inverse-on-surface/10 font-headline-sm text-[17px] font-semibold text-inverse-on-surface" href="#audio-demo">Audio Demos<span class="material-symbols-outlined text-[20px] text-inverse-on-surface/40">chevron_right</span></a>
+      <a class="mobile-link flex items-center justify-between min-h-[52px] border-b border-inverse-on-surface/10 font-headline-sm text-[17px] font-semibold text-inverse-on-surface" href="#roi-calculator">ROI Calculator<span class="material-symbols-outlined text-[20px] text-inverse-on-surface/40">chevron_right</span></a>
+      <a class="mobile-link flex items-center justify-between min-h-[52px] border-b border-inverse-on-surface/10 font-headline-sm text-[17px] font-semibold text-inverse-on-surface" href="#faq">FAQ<span class="material-symbols-outlined text-[20px] text-inverse-on-surface/40">chevron_right</span></a>
+      <div class="grid grid-cols-1 gap-space-sm pt-space-lg">
+        <a class="mobile-link inline-flex items-center justify-center gap-space-xs min-h-[48px] rounded-xl bg-primary-container text-on-primary font-label-lg text-[15px] font-bold" href="#demo-form"><span class="material-symbols-outlined text-[20px]">calendar_month</span>Book a Free Demo</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="lg:hidden hidden fixed inset-0 z-[45] bg-inverse-surface/40" id="menu-backdrop"></div>
+
+<main class="w-full pt-20 bg-surface">
+
+<!-- HERO -->
+<section class="relative w-full overflow-hidden bg-gradient-to-b from-surface to-surface-container-low/40 pb-space-3xl max-sm:pb-space-xl">
+  <div class="absolute -top-32 right-1/4 w-96 h-96 bg-primary-fixed/30 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute top-1/3 -left-20 w-80 h-80 bg-tertiary-fixed-dim/20 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="relative max-w-7xl mx-auto px-gutter lg:px-margin pt-space-xl max-sm:pt-space-lg">
+    <div class="flex items-center justify-center lg:justify-start">
+      <div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-lowest shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+        <span class="font-label-md text-label-md text-primary font-semibold tracking-wide uppercase">AI Dental Receptionist<span class="max-sm:hidden"> • 24/7 Answering Service</span></span>
+        <span class="material-symbols-outlined text-primary text-[16px]">verified</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center mt-space-lg">
+      <div class="lg:col-span-6 space-y-space-md text-center lg:text-left">
+        <h1 class="font-headline-lg-mobile text-headline-lg-mobile sm:font-headline-lg sm:text-headline-lg text-on-surface tracking-tight font-bold">
+          Never Miss a Patient Call Again. The AI Receptionist Built Specifically for <span class="text-primary underline decoration-primary-fixed decoration-4 underline-offset-8">Dental Clinics</span>.
+        </h1>
+        <p class="font-body-lg text-body-lg max-sm:text-body-md text-on-surface-variant max-w-xl mx-auto lg:mx-0">
+          Automate 24/7 patient appointments, emergency triage, insurance FAQ, and rescheduling, booked straight into your calendar. Dentrix, Eaglesoft, and Open Dental integration available.
+        </p>
+        <div class="pt-space-sm flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-space-sm">
+          <a class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs bg-primary text-on-primary hover:bg-primary-container px-space-xl py-space-md rounded-xl shadow-[0_8px_24px_-6px_rgba(13,148,136,0.55)] transition-all active:scale-[0.98] font-label-lg text-[15px] font-bold" href="#demo-form">
+            <span class="material-symbols-outlined text-[20px]">calendar_month</span>
+            <span>Book a Free Demo</span>
+          </a>
+        </div>
+        <div class="pt-space-xs flex flex-wrap items-center justify-center lg:justify-start gap-space-md text-on-surface-variant">
+          <div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span><span class="font-label-sm text-label-sm">15-min call, no commitment</span></div>
+          <div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[18px]">schedule</span><span class="font-label-sm text-label-sm">Answers 24/7</span></div>
+          <div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[18px]">redeem</span><span class="font-label-sm text-label-sm">Free missed-call audit</span></div>
+        </div>
+      </div>
+
+      <!-- Hero visual: clinic photo + live call card (cycles through calls) -->
+      <div class="max-sm:hidden lg:col-span-6 relative mt-space-lg lg:mt-0">
+        <div class="relative rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-primary-container via-primary to-tertiary h-[460px] max-sm:h-[420px]">
+          <img alt="Dental clinic front desk with a receptionist on a headset, supported by the Dentivoice AI receptionist" width="1200" height="800" fetchpriority="high" decoding="async" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ4g5UY9l-33DKDKbnWE1OiOZVafT5dqyHDss3eEQiey3i3KSrO1lSsoLVkkbG4MGkSHrwFcmtY5UwtZ0hnKOwQJ_3ePfPMmG1Aladd51GnDs9R3LWJx2zly2rGPRHFZzKNB-WkMTa7bhN3DUpgT5yQhs5qxRW3rrIRd19qB99bY5xmFfBJb-DFu2qvBWOiDYVVmN2o_Oy6X0k4zeutVyxaEs34r1QUenZ6o8ZUH7uyNI-J7dH53gE" onerror="this.remove()">
+          <div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-inverse-surface/25 to-transparent"></div>
+
+          <div class="absolute bottom-4 left-4 right-4 sm:left-6 sm:right-6 bg-surface-container-lowest/95 backdrop-blur-md rounded-xl p-space-md shadow-lg">
+            <div class="flex items-center justify-between gap-space-xs pb-space-xs border-b border-surface-container-high">
+              <div class="flex items-center gap-space-xs">
+                <span class="relative flex h-3 w-3"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span></span>
+                <span class="font-label-md text-label-md text-on-surface font-semibold">Live Incoming Call</span>
+                <span class="hidden sm:inline font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed" id="hero-line">Line 2 • 00:00</span>
+              </div>
+              <div class="flex items-center gap-1 font-label-sm text-label-sm text-primary font-semibold">
+                <span class="material-symbols-outlined text-[16px] animate-spin [animation-duration:3s]">sync</span>
+                <span id="hero-sync">Calendar updated</span>
+              </div>
+            </div>
+            <div class="space-y-space-xs pt-space-xs fade-swap" id="hero-convo">
+              <div class="flex items-start gap-space-xs">
+                <div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[14px] text-secondary">person</span></div>
+                <div class="bg-surface-container-low rounded-lg p-2 max-w-[88%]">
+                  <p class="font-label-sm text-label-sm text-secondary font-semibold" id="hero-caller"></p>
+                  <p class="font-body-sm text-body-sm text-on-surface" id="hero-q"></p>
+                </div>
+              </div>
+              <div class="flex items-start gap-space-xs">
+                <div class="w-7 h-7 rounded-full bg-surface-container-lowest ring-1 ring-primary-fixed flex items-center justify-center shrink-0 shadow-sm"><img src="assets/logo-icon.png" alt="" width="20" height="16" class="w-5 h-auto"></div>
+                <div class="bg-primary/10 rounded-lg p-2 max-w-[92%] min-h-[64px]">
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="font-label-sm text-label-sm text-primary font-bold">Emma (Dentivoice AI):</span>
+                    <div class="flex items-center gap-0.5 h-3" id="hero-wave">
+                      <span class="w-0.5 h-2 bg-primary rounded-full animate-bounce"></span>
+                      <span class="w-0.5 h-3 bg-primary rounded-full animate-pulse"></span>
+                      <span class="w-0.5 h-1.5 bg-primary rounded-full animate-bounce"></span>
+                      <span class="w-0.5 h-3.5 bg-primary rounded-full animate-pulse"></span>
+                    </div>
+                  </div>
+                  <p class="font-body-sm text-body-sm text-on-surface" id="hero-a"></p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-space-xs flex flex-wrap items-center justify-between gap-1 text-on-surface-variant font-label-sm text-label-sm bg-surface-container-low px-space-sm py-1 rounded fade-swap" id="hero-chip">
+              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-primary text-[14px]">event_available</span><span id="hero-action"></span></span>
+              <span class="text-primary font-semibold" id="hero-triage"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Metrics strip -->
+    <div class="mt-space-2xl max-sm:mt-space-lg grid grid-cols-1 md:grid-cols-3 gap-space-md p-space-md rounded-2xl bg-surface-container-lowest shadow-sm reveal">
+      <div class="flex items-center gap-space-md px-space-sm">
+        <div class="w-12 h-12 rounded-xl bg-primary-fixed/40 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary text-[28px]">schedule</span></div>
+        <div><div class="font-headline-md text-headline-md text-on-surface font-bold" >24/7</div><p class="font-body-sm text-body-sm text-on-surface-variant">Answers nights, weekends &amp; lunch hours</p></div>
+      </div>
+      <div class="flex items-center gap-space-md px-space-sm">
+        <div class="w-12 h-12 rounded-xl bg-tertiary-fixed/40 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-tertiary text-[28px]">phone_in_talk</span></div>
+        <div><div class="font-headline-md text-headline-md text-on-surface font-bold" data-count="100" data-suffix="%">100%</div><p class="font-body-sm text-body-sm text-on-surface-variant">Of calls picked up. No voicemail, no hold music</p></div>
+      </div>
+      <div class="flex items-center gap-space-md px-space-sm">
+        <div class="w-12 h-12 rounded-xl bg-primary-fixed/40 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary text-[28px]">redeem</span></div>
+        <div><div class="font-headline-md text-headline-md text-on-surface font-bold">Free</div><p class="font-body-sm text-body-sm text-on-surface-variant">Missed-call audit for your clinic. No contract.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRATIONS -->
+<section id="integrations" style="background:#0f172a;padding:24px 0">
+<div style="max-width:80rem;margin:0 auto;padding:0 24px;text-align:center">
+<p style="margin:0 0 16px;font:600 12px/16px Inter,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:rgba(241,245,249,.7)">Books into your calendar today • Practice software integration available</p>
+<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px 40px;font:700 20px/28px 'Plus Jakarta Sans',sans-serif;letter-spacing:-.01em;color:#f1f5f9">
+      <div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="display:inline-block;width:10px;height:10px;border-radius:9999px;background:#14b8a6"></span>Dentrix</div>
+      <div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="display:inline-block;width:10px;height:10px;border-radius:9999px;background:#14b8a6"></span>Eaglesoft</div>
+      <div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="display:inline-block;width:10px;height:10px;border-radius:9999px;background:#14b8a6"></span>Open Dental</div>
+      <div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="display:inline-block;width:10px;height:10px;border-radius:9999px;background:#14b8a6"></span>Curve Dental</div>
+      <div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="display:inline-block;width:10px;height:10px;border-radius:9999px;background:#14b8a6"></span>Carestream</div>
+      <div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="display:inline-block;width:10px;height:10px;border-radius:9999px;background:#14b8a6"></span>Denticon</div>
+      <div style="display:flex;align-items:center;gap:8px;white-space:nowrap"><span style="display:inline-block;width:10px;height:10px;border-radius:9999px;background:#14b8a6"></span>CS SoftDent</div>
+</div>
+</div>
+</section>
+
+<!-- CORE CAPABILITIES -->
+<section class="w-full py-space-3xl max-sm:py-space-xl bg-surface" id="features">
+  <div class="max-w-7xl mx-auto px-gutter lg:px-margin">
+    <div class="text-center max-w-3xl mx-auto mb-space-2xl max-sm:mb-space-lg reveal">
+      <span class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider bg-primary/10 ring-1 ring-primary/20 px-space-md py-1 rounded-full">Built for the Front Desk</span>
+      <h2 class="font-headline-lg-mobile text-headline-lg-mobile sm:font-headline-lg sm:text-headline-lg text-on-surface font-bold mt-space-sm">An AI Dental Receptionist That Handles Every Patient Call, 24/7</h2>
+      <p class="font-body-lg text-body-lg max-sm:text-body-md text-on-surface-variant mt-space-xs">Trained on dental procedures, insurance panels, and your practice's scheduling rules, not a generic chatbot.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-md max-sm:flex max-sm:gap-0 max-sm:overflow-x-auto max-sm:snap-x max-sm:snap-mandatory max-sm:[scrollbar-width:none]" id="features-track" aria-roledescription="carousel" aria-label="Features">
+  <div class="reveal group bg-surface-container-lowest rounded-2xl p-space-lg max-sm:p-space-md max-sm:w-full max-sm:shrink-0 max-sm:snap-center max-sm:flex max-sm:gap-space-md shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all">
+    <div class="w-12 h-12 max-sm:w-11 max-sm:h-11 max-sm:shrink-0 rounded-xl bg-primary-fixed/40 group-hover:bg-primary transition-colors flex items-center justify-center mb-space-md max-sm:mb-0">
+      <span class="material-symbols-outlined text-primary group-hover:text-on-primary text-[26px] transition-colors">event_available</span>
+    </div>
+    <div>
+    <h3 class="font-headline-sm text-headline-sm max-sm:text-[17px] max-sm:leading-6 text-on-surface font-semibold mb-space-xs">24/7 Booking &amp; Rescheduling</h3>
+    <p class="font-body-sm text-body-sm text-on-surface-variant">Books by provider, procedure, and operatory in real time, straight into your calendar or practice software.</p>
+    </div>
+  </div>
+  <div class="reveal group bg-surface-container-lowest rounded-2xl p-space-lg max-sm:p-space-md max-sm:w-full max-sm:shrink-0 max-sm:snap-center max-sm:flex max-sm:gap-space-md shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all">
+    <div class="w-12 h-12 max-sm:w-11 max-sm:h-11 max-sm:shrink-0 rounded-xl bg-primary-fixed/40 group-hover:bg-primary transition-colors flex items-center justify-center mb-space-md max-sm:mb-0">
+      <span class="material-symbols-outlined text-primary group-hover:text-on-primary text-[26px] transition-colors">emergency</span>
+    </div>
+    <div>
+    <h3 class="font-headline-sm text-headline-sm max-sm:text-[17px] max-sm:leading-6 text-on-surface font-semibold mb-space-xs">Emergency Triage</h3>
+    <p class="font-body-sm text-body-sm text-on-surface-variant">Screens pain, swelling, and trauma, then pages the on-call dentist for urgent cases.</p>
+    </div>
+  </div>
+  <div class="reveal group bg-surface-container-lowest rounded-2xl p-space-lg max-sm:p-space-md max-sm:w-full max-sm:shrink-0 max-sm:snap-center max-sm:flex max-sm:gap-space-md shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all">
+    <div class="w-12 h-12 max-sm:w-11 max-sm:h-11 max-sm:shrink-0 rounded-xl bg-primary-fixed/40 group-hover:bg-primary transition-colors flex items-center justify-center mb-space-md max-sm:mb-0">
+      <span class="material-symbols-outlined text-primary group-hover:text-on-primary text-[26px] transition-colors">health_and_safety</span>
+    </div>
+    <div>
+    <h3 class="font-headline-sm text-headline-sm max-sm:text-[17px] max-sm:leading-6 text-on-surface font-semibold mb-space-xs">Insurance &amp; Copay FAQ</h3>
+    <p class="font-body-sm text-body-sm text-on-surface-variant">Knows your in-network panels and explains typical coverage for cleanings, X-rays, and exams.</p>
+    </div>
+  </div>
+  <div class="reveal group bg-surface-container-lowest rounded-2xl p-space-lg max-sm:p-space-md max-sm:w-full max-sm:shrink-0 max-sm:snap-center max-sm:flex max-sm:gap-space-md shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all">
+    <div class="w-12 h-12 max-sm:w-11 max-sm:h-11 max-sm:shrink-0 rounded-xl bg-primary-fixed/40 group-hover:bg-primary transition-colors flex items-center justify-center mb-space-md max-sm:mb-0">
+      <span class="material-symbols-outlined text-primary group-hover:text-on-primary text-[26px] transition-colors">chat</span>
+    </div>
+    <div>
+    <h3 class="font-headline-sm text-headline-sm max-sm:text-[17px] max-sm:leading-6 text-on-surface font-semibold mb-space-xs">Reminder Messages</h3>
+    <p class="font-body-sm text-body-sm text-on-surface-variant">Appointment reminders and confirmations sent by WhatsApp, SMS, or your preferred platform to cut no-shows.</p>
+    </div>
+  </div>
+  <div class="reveal group bg-surface-container-lowest rounded-2xl p-space-lg max-sm:p-space-md max-sm:w-full max-sm:shrink-0 max-sm:snap-center max-sm:flex max-sm:gap-space-md shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all">
+    <div class="w-12 h-12 max-sm:w-11 max-sm:h-11 max-sm:shrink-0 rounded-xl bg-primary-fixed/40 group-hover:bg-primary transition-colors flex items-center justify-center mb-space-md max-sm:mb-0">
+      <span class="material-symbols-outlined text-primary group-hover:text-on-primary text-[26px] transition-colors">summarize</span>
+    </div>
+    <div>
+    <h3 class="font-headline-sm text-headline-sm max-sm:text-[17px] max-sm:leading-6 text-on-surface font-semibold mb-space-xs">Call Summaries</h3>
+    <p class="font-body-sm text-body-sm text-on-surface-variant">Every call logged with a transcript and outcome, sent to your front desk each day.</p>
+    </div>
+  </div>
+  <div class="reveal group bg-surface-container-lowest rounded-2xl p-space-lg max-sm:p-space-md max-sm:w-full max-sm:shrink-0 max-sm:snap-center max-sm:flex max-sm:gap-space-md shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all">
+    <div class="w-12 h-12 max-sm:w-11 max-sm:h-11 max-sm:shrink-0 rounded-xl bg-primary-fixed/40 group-hover:bg-primary transition-colors flex items-center justify-center mb-space-md max-sm:mb-0">
+      <span class="material-symbols-outlined text-primary group-hover:text-on-primary text-[26px] transition-colors">support_agent</span>
+    </div>
+    <div>
+    <h3 class="font-headline-sm text-headline-sm max-sm:text-[17px] max-sm:leading-6 text-on-surface font-semibold mb-space-xs">Warm Transfer to Staff</h3>
+    <p class="font-body-sm text-body-sm text-on-surface-variant">Hands off to your front desk instantly when a human is needed, with full context.</p>
+    </div>
+  </div>
+    </div>
+    <div class="sm:hidden flex items-center justify-center gap-space-sm mt-space-md">
+      <button class="w-11 h-11 rounded-full bg-surface-container-lowest shadow-sm flex items-center justify-center text-primary active:scale-95 transition-transform" id="features-prev" type="button" aria-label="Previous feature"><span class="material-symbols-outlined text-[22px]">chevron_left</span></button>
+      <div class="flex items-center" id="features-dots"></div>
+      <button class="w-11 h-11 rounded-full bg-surface-container-lowest shadow-sm flex items-center justify-center text-primary active:scale-95 transition-transform" id="features-next" type="button" aria-label="Next feature"><span class="material-symbols-outlined text-[22px]">chevron_right</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIO DEMO PLAYER -->
+<section class="w-full py-space-3xl max-sm:py-space-xl bg-surface-container-low/60" id="audio-demo">
+  <div class="max-w-7xl mx-auto px-gutter lg:px-margin">
+    <div class="text-center max-w-3xl mx-auto mb-space-2xl max-sm:mb-space-lg reveal">
+      <span class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider bg-primary/10 ring-1 ring-primary/20 px-space-md py-1 rounded-full">Sample Call Scenarios</span>
+      <h2 class="font-headline-lg-mobile text-headline-lg-mobile sm:font-headline-lg sm:text-headline-lg text-on-surface font-bold mt-space-sm">Hear How Dentivoice Answers Dental Patient Calls</h2>
+      <p class="font-body-lg text-body-lg max-sm:text-body-md text-on-surface-variant mt-space-xs">A warm, natural voice that knows dental procedures, insurance basics, and your scheduling rules. Press play to follow a sample call.</p>
+    </div>
+
+    <div class="bg-surface-container-lowest rounded-2xl shadow-lg p-space-lg max-sm:p-space-md lg:p-space-xl max-w-4xl mx-auto reveal">
+      <div class="grid grid-cols-2 gap-space-xs p-1 bg-surface-container-low rounded-xl mb-space-lg max-sm:mb-space-md" role="tablist" id="scenario-tabs"></div>
+
+      <div class="bg-inverse-surface rounded-xl p-space-md sm:p-space-lg mb-space-lg shadow-lg">
+        <div class="flex items-center justify-between gap-space-sm mb-space-sm">
+          <div class="flex items-center gap-space-sm">
+            <button class="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow hover:bg-primary-fixed-dim hover:text-on-primary-fixed transition-transform active:scale-95 shrink-0" id="playPauseBtn" onclick="togglePlay()" type="button" aria-label="Play">
+              <span class="material-symbols-outlined text-[24px]" id="playIcon">play_arrow</span>
+            </button>
+            <div>
+              <h3 class="font-headline-sm text-[16px] leading-6 sm:text-headline-sm text-inverse-on-surface font-semibold" id="scenario-title"></h3>
+              <p class="font-label-sm text-label-sm text-inverse-on-surface/60" id="scenario-meta"></p>
+            </div>
+          </div>
+          <div class="hidden sm:flex items-center gap-1 text-primary-fixed-dim font-label-sm text-label-sm font-semibold bg-inverse-on-surface/10 px-space-sm py-1 rounded-full shrink-0">
+            <span class="material-symbols-outlined text-[16px]">description</span><span id="scenario-badge">Sample Transcript</span>
+          </div>
+        </div>
+        <div class="relative w-full h-14 bg-inverse-on-surface/5 rounded-lg px-3 sm:px-4 flex items-center gap-[2px] sm:gap-[3px] overflow-hidden cursor-pointer" id="waveform" onclick="handleScrub(event)">
+          <div class="absolute left-0 top-0 bottom-0 bg-primary-container/15 transition-[width] duration-100" id="progress-bar-fill" style="width:0%"></div>
+        </div>
+        <div class="flex items-center justify-between text-inverse-on-surface/60 font-label-sm text-label-sm mt-2">
+          <span id="audio-current-time">0:00</span><span id="audio-total-time">0:00</span>
+        </div>
+      </div>
+
+      <div class="bg-surface rounded-xl p-space-md space-y-space-sm font-body-sm text-body-sm min-h-[220px]" style="max-height:340px;overflow-y:auto;scroll-behavior:smooth" id="scenario-transcript"></div>
+      <div class="hidden mt-space-sm items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-primary-fixed/30 text-on-primary-fixed-variant font-label-md text-label-md" id="scenario-outcome"></div>
+
+      <div class="mt-space-lg max-sm:mt-space-md p-space-md rounded-xl bg-primary/10 flex flex-col sm:flex-row items-center justify-between gap-space-md">
+        <div class="flex items-center gap-space-sm text-left">
+          <div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[20px]">record_voice_over</span></div>
+          <div>
+            <p class="font-label-lg text-label-lg text-on-surface font-bold">Want to hear it with your own clinic's name and hours?</p>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Book a free demo and we'll set up a custom agent for your practice.</p>
+          </div>
+        </div>
+        <a class="px-space-md py-space-sm max-sm:w-full max-lg:min-h-[44px] justify-center rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md max-sm:text-label-lg font-semibold transition-all shrink-0 inline-flex items-center gap-1" href="#demo-form">Get My Custom Demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI CALCULATOR -->
+<section class="w-full py-space-3xl max-sm:py-space-xl bg-surface" id="roi-calculator">
+  <div class="max-w-7xl mx-auto px-gutter lg:px-margin">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+      <div class="lg:col-span-7 space-y-space-md reveal">
+        <div class="inline-flex items-center gap-space-xs px-space-md py-1 rounded-full bg-primary-fixed/40 text-on-primary-fixed font-label-md text-label-md font-semibold">
+          <span class="material-symbols-outlined text-[18px]">calculate</span>Practice Production Calculator
+        </div>
+        <h2 class="font-headline-lg-mobile text-headline-lg-mobile sm:font-headline-lg sm:text-headline-lg text-on-surface font-bold">How Much Are Missed Calls Costing Your Dental Practice?</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant">Calls that hit voicemail during lunch, peak check-in, or after hours are patients who may book with the next clinic on Google. Plug in your own numbers to see what that costs.</p>
+
+        <div class="bg-surface-container-lowest p-space-lg max-sm:p-space-md rounded-2xl shadow-sm space-y-space-lg mt-space-md">
+          <div class="space-y-space-xs">
+            <div class="flex justify-between items-center max-sm:gap-space-sm">
+              <label class="font-label-lg text-label-lg text-on-surface font-semibold" for="chairs-slider">Active Operatories / Chairs</label>
+              <span class="font-headline-sm text-headline-sm max-sm:text-[18px] text-primary font-bold whitespace-nowrap" id="chairs-val">4 Chairs</span>
+            </div>
+            <input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer" id="chairs-slider" max="15" min="1" oninput="updateROI()" type="range" value="4">
+            <div class="flex justify-between text-on-surface-variant font-label-sm text-label-sm"><span>1 Solo Chair</span><span>15 Multi-Op DSO</span></div>
+          </div>
+          <div class="space-y-space-xs">
+            <div class="flex justify-between items-center max-sm:gap-space-sm">
+              <label class="font-label-lg text-label-lg text-on-surface font-semibold" for="calls-slider">Unanswered Patient Calls Per Week</label>
+              <span class="font-headline-sm text-headline-sm max-sm:text-[18px] text-primary font-bold whitespace-nowrap" id="calls-val">28 Calls/wk</span>
+            </div>
+            <input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer" id="calls-slider" max="100" min="5" oninput="updateROI()" type="range" value="28">
+            <div class="flex justify-between text-on-surface-variant font-label-sm text-label-sm"><span>5 Calls<span class="max-sm:hidden"> (Minimal)</span></span><span>100 Calls<span class="max-sm:hidden"> (High-Volume)</span></span></div>
+          </div>
+          <div class="space-y-space-xs">
+            <div class="flex justify-between items-center max-sm:gap-space-sm">
+              <label class="font-label-lg text-label-lg text-on-surface font-semibold" for="val-slider">Avg. 1st Year Patient Production</label>
+              <span class="font-headline-sm text-headline-sm max-sm:text-[18px] text-primary font-bold whitespace-nowrap" id="val-val">$1,450</span>
+            </div>
+            <input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer" id="val-slider" max="3500" min="600" oninput="updateROI()" step="50" type="range" value="1450">
+            <div class="flex justify-between text-on-surface-variant font-label-sm text-label-sm"><span>$600<span class="max-sm:hidden"> (Basic Cleaning/Exam)</span></span><span>$3,500<span class="max-sm:hidden"> (Restorative &amp; Implants)</span></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 reveal">
+        <div class="rounded-3xl max-sm:rounded-2xl bg-inverse-surface text-inverse-on-surface p-space-xl max-sm:p-space-lg shadow-xl relative overflow-hidden">
+          <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-primary/20 rounded-full blur-2xl"></div>
+          <div class="relative z-10 space-y-space-lg">
+            <div class="flex items-center gap-space-xs">
+              <span class="w-3 h-3 rounded-full bg-primary-fixed animate-ping"></span>
+              <span class="font-label-sm text-label-sm text-primary-fixed uppercase tracking-wider font-bold">Estimated Monthly Yield</span>
+            </div>
+            <div>
+              <p class="font-body-sm text-body-sm text-inverse-on-surface/70">Recoverable Monthly Revenue:</p>
+              <div class="font-display-mobile text-display-mobile sm:font-display sm:text-display text-primary-fixed font-bold tracking-tight mt-1 tabular-nums" id="recovered-revenue">$0</div>
+              <p class="font-label-sm text-label-sm text-inverse-on-surface/80 mt-1">Based on conservative 40% conversion of captured missed calls. <span id="recovered-year" class="text-primary-fixed font-semibold"></span></p>
+            </div>
+            <div class="grid grid-cols-2 gap-space-md pt-space-md border-t border-inverse-on-surface/10">
+              <div class="space-y-1">
+                <p class="font-label-sm text-label-sm text-inverse-on-surface/70">Staff Hours Reclaimed:</p>
+                <p class="font-headline-md text-headline-md max-sm:text-[24px] max-sm:leading-8 whitespace-nowrap font-bold text-inverse-on-surface" id="hours-saved">0 hrs/wk</p>
+                <p class="font-label-sm text-label-sm text-inverse-on-surface/60">Front-desk admin freedom</p>
+              </div>
+              <div class="space-y-1">
+                <p class="font-label-sm text-label-sm text-inverse-on-surface/70">ROI Multiple:</p>
+                <p class="font-headline-md text-headline-md max-sm:text-[24px] max-sm:leading-8 whitespace-nowrap font-bold text-primary-fixed" id="roi-multiple">0x</p>
+                <p class="font-label-sm text-label-sm text-inverse-on-surface/60">vs. monthly plan cost</p>
+              </div>
+            </div>
+            <a class="w-full inline-flex items-center justify-center gap-space-xs bg-primary text-on-primary hover:bg-primary-container px-space-lg py-space-md rounded-xl font-label-lg text-label-lg transition-transform active:scale-[0.98]" href="#demo-form">
+              <span>Book a Free Demo</span><span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="w-full py-space-3xl max-sm:py-space-xl bg-surface-container-low/60" id="faq">
+  <div class="max-w-7xl mx-auto px-gutter lg:px-margin">
+    <div class="text-center max-w-3xl mx-auto mb-space-2xl max-sm:mb-space-lg reveal">
+      <span class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider bg-primary/10 ring-1 ring-primary/20 px-space-md py-1 rounded-full">FAQ</span>
+      <h2 class="font-headline-lg-mobile text-headline-lg-mobile sm:font-headline-lg sm:text-headline-lg text-on-surface font-bold mt-space-sm">Questions Dental Clinic Owners Ask Us</h2>
+      <p class="font-body-lg text-body-lg max-sm:text-body-md text-on-surface-variant mt-space-xs">How an AI receptionist talks to your patients, works with your team, and fits into your practice.</p>
+    </div>
+    <div class="bg-surface-container-lowest rounded-2xl shadow-lg px-space-lg max-sm:px-space-md lg:px-space-xl py-space-xs max-w-4xl mx-auto divide-y divide-surface-container-high reveal">
+        <details class="group py-space-md sm:py-space-lg" open>
+          <summary class="flex items-center justify-between gap-space-md max-lg:min-h-[44px] cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+            <h3 class="font-headline-sm text-[17px] leading-6 font-semibold text-on-surface group-hover:text-primary transition-colors">Will patients know they're talking to an AI receptionist?</h3>
+            <span class="w-8 h-8 rounded-full bg-surface-container-low group-open:bg-primary flex items-center justify-center shrink-0 transition-colors">
+              <span class="material-symbols-outlined text-[20px] text-primary group-open:text-on-primary transition-transform group-open:rotate-45">add</span>
+            </span>
+          </summary>
+          <p class="mt-space-sm pr-space-2xl max-sm:pr-0 font-body-md text-body-md text-on-surface-variant">Dentivoice introduces itself as the clinic's virtual assistant. The voice is warm and natural, there's no phone-tree menu, and callers get an instant answer instead of voicemail. Most patients care far more about getting booked than who picks up.</p>
+        </details>
+        <details class="group py-space-md sm:py-space-lg">
+          <summary class="flex items-center justify-between gap-space-md max-lg:min-h-[44px] cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+            <h3 class="font-headline-sm text-[17px] leading-6 font-semibold text-on-surface group-hover:text-primary transition-colors">Does it replace my front desk team?</h3>
+            <span class="w-8 h-8 rounded-full bg-surface-container-low group-open:bg-primary flex items-center justify-center shrink-0 transition-colors">
+              <span class="material-symbols-outlined text-[20px] text-primary group-open:text-on-primary transition-transform group-open:rotate-45">add</span>
+            </span>
+          </summary>
+          <p class="mt-space-sm pr-space-2xl max-sm:pr-0 font-body-md text-body-md text-on-surface-variant">No. It handles overflow, lunch-hour, and after-hours calls, plus repetitive questions, so your team can focus on the patients in the chair and at the counter.</p>
+        </details>
+        <details class="group py-space-md sm:py-space-lg">
+          <summary class="flex items-center justify-between gap-space-md max-lg:min-h-[44px] cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+            <h3 class="font-headline-sm text-[17px] leading-6 font-semibold text-on-surface group-hover:text-primary transition-colors">What happens if the AI can't answer a question?</h3>
+            <span class="w-8 h-8 rounded-full bg-surface-container-low group-open:bg-primary flex items-center justify-center shrink-0 transition-colors">
+              <span class="material-symbols-outlined text-[20px] text-primary group-open:text-on-primary transition-transform group-open:rotate-45">add</span>
+            </span>
+          </summary>
+          <p class="mt-space-sm pr-space-2xl max-sm:pr-0 font-body-md text-body-md text-on-surface-variant">It transfers the call to your staff, or takes a detailed message and sends it to your team right away. You decide the rules for when a human takes over.</p>
+        </details>
+        <details class="group py-space-md sm:py-space-lg">
+          <summary class="flex items-center justify-between gap-space-md max-lg:min-h-[44px] cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+            <h3 class="font-headline-sm text-[17px] leading-6 font-semibold text-on-surface group-hover:text-primary transition-colors">Does it work with Dentrix, Eaglesoft, or Open Dental?</h3>
+            <span class="w-8 h-8 rounded-full bg-surface-container-low group-open:bg-primary flex items-center justify-center shrink-0 transition-colors">
+              <span class="material-symbols-outlined text-[20px] text-primary group-open:text-on-primary transition-transform group-open:rotate-45">add</span>
+            </span>
+          </summary>
+          <p class="mt-space-sm pr-space-2xl max-sm:pr-0 font-body-md text-body-md text-on-surface-variant">Dentivoice books into your calendar from day one. Direct integration with Dentrix, Eaglesoft, Open Dental, and other practice management software is available. We'll confirm what works for your setup on the demo call.</p>
+        </details>
+        <details class="group py-space-md sm:py-space-lg">
+          <summary class="flex items-center justify-between gap-space-md max-lg:min-h-[44px] cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+            <h3 class="font-headline-sm text-[17px] leading-6 font-semibold text-on-surface group-hover:text-primary transition-colors">How does it handle dental emergencies?</h3>
+            <span class="w-8 h-8 rounded-full bg-surface-container-low group-open:bg-primary flex items-center justify-center shrink-0 transition-colors">
+              <span class="material-symbols-outlined text-[20px] text-primary group-open:text-on-primary transition-transform group-open:rotate-45">add</span>
+            </span>
+          </summary>
+          <p class="mt-space-sm pr-space-2xl max-sm:pr-0 font-body-md text-body-md text-on-surface-variant">It asks screening questions about pain, swelling, and bleeding, books urgent slots when available, and alerts your on-call dentist for serious cases. Anyone describing a medical emergency is told to call 911.</p>
+        </details>
+        <details class="group py-space-md sm:py-space-lg">
+          <summary class="flex items-center justify-between gap-space-md max-lg:min-h-[44px] cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+            <h3 class="font-headline-sm text-[17px] leading-6 font-semibold text-on-surface group-hover:text-primary transition-colors">How is patient information protected?</h3>
+            <span class="w-8 h-8 rounded-full bg-surface-container-low group-open:bg-primary flex items-center justify-center shrink-0 transition-colors">
+              <span class="material-symbols-outlined text-[20px] text-primary group-open:text-on-primary transition-transform group-open:rotate-45">add</span>
+            </span>
+          </summary>
+          <p class="mt-space-sm pr-space-2xl max-sm:pr-0 font-body-md text-body-md text-on-surface-variant">Dentivoice is built for HIPAA workflows. We'll walk you through exactly how call data is stored, secured, and accessed on your demo call.</p>
+        </details>
+        <details class="group py-space-md sm:py-space-lg">
+          <summary class="flex items-center justify-between gap-space-md max-lg:min-h-[44px] cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+            <h3 class="font-headline-sm text-[17px] leading-6 font-semibold text-on-surface group-hover:text-primary transition-colors">How much does it cost?</h3>
+            <span class="w-8 h-8 rounded-full bg-surface-container-low group-open:bg-primary flex items-center justify-center shrink-0 transition-colors">
+              <span class="material-symbols-outlined text-[20px] text-primary group-open:text-on-primary transition-transform group-open:rotate-45">add</span>
+            </span>
+          </summary>
+          <p class="mt-space-sm pr-space-2xl max-sm:pr-0 font-body-md text-body-md text-on-surface-variant">A flat monthly fee based on your call volume. Every clinic starts with a free missed-call audit, with no contract.</p>
+        </details>
+        <details class="group py-space-md sm:py-space-lg">
+          <summary class="flex items-center justify-between gap-space-md max-lg:min-h-[44px] cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+            <h3 class="font-headline-sm text-[17px] leading-6 font-semibold text-on-surface group-hover:text-primary transition-colors">How long does setup take?</h3>
+            <span class="w-8 h-8 rounded-full bg-surface-container-low group-open:bg-primary flex items-center justify-center shrink-0 transition-colors">
+              <span class="material-symbols-outlined text-[20px] text-primary group-open:text-on-primary transition-transform group-open:rotate-45">add</span>
+            </span>
+          </summary>
+          <p class="mt-space-sm pr-space-2xl max-sm:pr-0 font-body-md text-body-md text-on-surface-variant">About 2 to 3 weeks. We learn your hours, services, providers, and insurance panels, build your custom voice agent, and you simply forward your calls.</p>
+        </details>
+    </div>
+    <p class="mt-space-lg text-center font-body-md text-body-md text-on-surface-variant reveal">Still have questions? <a class="text-primary font-semibold hover:underline max-lg:inline-block max-lg:py-2.5" href="#demo-form">Book a free call</a>.</p>
+  </div>
+</section>
+
+<!-- DEMO BOOKING FORM -->
+<section class="w-full py-space-3xl max-sm:py-space-xl bg-surface" id="demo-form">
+  <div class="max-w-5xl mx-auto px-gutter max-sm:px-space-md lg:px-margin">
+    <div class="bg-surface-container-lowest rounded-3xl max-sm:rounded-2xl p-space-lg max-sm:px-space-sm max-sm:pt-space-xl max-sm:pb-space-sm lg:p-space-2xl shadow-xl relative overflow-hidden reveal">
+      <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-primary via-primary-container to-tertiary"></div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+        <div class="lg:col-span-5 space-y-space-md max-sm:px-space-sm">
+          <span class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider">Free 30-Minute Demo</span>
+          <h2 class="font-headline-lg-mobile text-headline-lg-mobile sm:font-headline-lg sm:text-headline-lg text-on-surface font-bold">Ready to eliminate missed calls and fill your dental chairs?</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant">Request your free practice missed-call audit and a custom voice model calibrated with your practice hours, dental insurance panels, and scheduling rules.</p>
+          <div class="space-y-space-sm pt-space-sm">
+            <div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span><span>No hardware required • Works with existing phone lines</span></div>
+            <div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span><span>We handle setup end-to-end for you</span></div>
+            <div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span><span>Free missed-call audit • No contract, cancel anytime</span></div>
+            <div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span><span>Built for HIPAA workflows</span></div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 lg:self-center bg-surface-container-low p-space-md max-sm:p-0 max-sm:pb-space-sm max-sm:bg-transparent sm:p-space-lg rounded-2xl">
+          <!-- Phones: compact booking card that opens Calendly as a popup -->
+          <div class="sm:hidden rounded-2xl bg-[#1e293b] px-space-lg py-space-xl text-center shadow-[0_20px_40px_-12px_rgba(15,23,42,0.45)]">
+            <p class="font-mono text-[13px] tracking-[0.25em] uppercase text-primary-fixed-dim">30-Minute Call</p>
+            <h3 class="mt-space-sm font-body-md text-[22px] leading-7 font-bold text-white">Prefer to talk it through?</h3>
+            <p class="mt-space-sm font-body-md text-body-md text-secondary-fixed-dim">Pick a time that suits you and I'll be there.</p>
+            <a class="mt-space-lg w-full min-h-[56px] inline-flex items-center justify-center rounded-2xl bg-primary text-on-primary font-body-md text-[17px] font-bold shadow-[0_10px_28px_-6px_rgba(13,148,136,0.55)] active:scale-[0.98] transition-transform" href="https://calendly.com/fahadyusuf000/30min" target="_blank" rel="noopener" id="mobile-book-call">Book a call</a>
+          </div>
+          <div class="max-sm:hidden calendly-inline-widget" data-url="https://calendly.com/fahadyusuf000/30min?hide_gdpr_banner=1&primary_color=0d9488" style="min-width:280px;height:700px"></div>
+          <p class="max-sm:hidden text-center font-label-sm text-label-sm text-on-surface-variant pt-space-xs">Calendar not loading? <a class="text-primary font-semibold hover:underline max-lg:inline-block max-lg:py-2.5" href="https://calendly.com/fahadyusuf000/30min" target="_blank" rel="noopener">Book on Calendly</a>.</p>
+          <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- Sticky mobile CTA -->
+<div id="mobile-cta" style="transform:translateY(110%)" class="lg:hidden fixed bottom-0 inset-x-0 z-40 p-space-sm pb-[max(0.5rem,env(safe-area-inset-bottom))] bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_-4px_20px_rgba(15,23,42,0.12)] flex gap-space-xs transition-transform duration-300">
+  <a class="flex-1 inline-flex items-center justify-center gap-space-xs bg-primary text-on-primary px-space-md py-3 rounded-xl font-label-lg text-label-lg font-bold" href="#demo-form"><span class="material-symbols-outlined text-[20px]">calendar_month</span>Book a Free Demo</a>
+</div>
+
+<footer class="relative w-full pb-space-md lg:pb-0 bg-inverse-surface text-inverse-on-surface/70 overflow-hidden">
+  <div class="absolute -top-40 -right-32 w-[28rem] h-[28rem] bg-primary/25 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute -bottom-48 -left-24 w-[26rem] h-[26rem] bg-tertiary/20 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="relative max-w-7xl mx-auto px-gutter lg:px-margin">
+    <!-- Link columns -->
+    <div class="grid grid-cols-2 md:grid-cols-12 gap-x-space-lg gap-y-space-xl pt-space-2xl pb-space-xl">
+      <div class="col-span-2 md:col-span-5 space-y-space-md">
+        <a href="#" class="inline-flex items-center gap-space-sm">
+          <span class="w-11 h-11 rounded-xl bg-surface-container-lowest flex items-center justify-center shadow-sm"><img src="assets/logo-icon.png" alt="" width="32" height="26" loading="lazy" class="w-8 h-auto"></span>
+          <span class="font-headline-sm text-[24px] leading-none font-bold tracking-[-0.03em] text-inverse-on-surface">Denti<span class="text-primary-fixed-dim">voice</span></span>
+        </a>
+        <p class="font-body-sm text-body-sm max-w-sm leading-relaxed">The AI receptionist built for dental clinics. Answers every call, books straight into your schedule, and triages emergencies 24/7.</p>
+        <div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-primary/20 text-primary-fixed font-label-sm text-label-sm font-semibold">
+          <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-fixed opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-primary-fixed"></span></span>
+          Now onboarding new clinics
+        </div>
+      </div>
+      <div class="max-sm:hidden md:col-span-2">
+        <h4 class="font-label-md text-label-md text-inverse-on-surface font-semibold uppercase tracking-wider mb-space-md">Product</h4>
+        <ul class="space-y-space-sm max-lg:space-y-0 font-body-sm text-body-sm">
+          <li><a class="hover:text-primary-fixed transition-colors max-lg:inline-block max-lg:py-3" href="#features">Features</a></li>
+          <li><a class="hover:text-primary-fixed transition-colors max-lg:inline-block max-lg:py-3" href="#audio-demo">Audio Demos</a></li>
+          <li><a class="hover:text-primary-fixed transition-colors max-lg:inline-block max-lg:py-3" href="#roi-calculator">ROI Calculator</a></li>
+          <li><a class="hover:text-primary-fixed transition-colors max-lg:inline-block max-lg:py-3" href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="max-sm:hidden md:col-span-2">
+        <h4 class="font-label-md text-label-md text-inverse-on-surface font-semibold uppercase tracking-wider mb-space-md">Integrations</h4>
+        <ul class="space-y-space-sm font-body-sm text-body-sm">
+          <li>Dentrix</li><li>Eaglesoft</li><li>Open Dental</li><li>Curve Dental</li><li>Denticon</li>
+        </ul>
+      </div>
+      <div class="col-span-2 md:col-span-3">
+        <h4 class="font-label-md text-label-md text-inverse-on-surface font-semibold uppercase tracking-wider mb-space-md">Get in Touch</h4>
+        <ul class="space-y-space-sm font-body-sm text-body-sm">
+          <li><a class="flex items-center gap-space-sm max-lg:py-1.5 hover:text-primary-fixed transition-colors" href="#demo-form"><span class="w-8 h-8 rounded-lg bg-inverse-on-surface/10 flex items-center justify-center"><span class="material-symbols-outlined text-primary-fixed text-[18px]">calendar_month</span></span>Book a 15-min demo</a></li>
+          <li><a class="flex items-center gap-space-sm max-lg:py-1.5 hover:text-primary-fixed transition-colors" href="https://fahadqureshi.tech" target="_blank" rel="noopener"><span class="w-8 h-8 rounded-lg bg-inverse-on-surface/10 flex items-center justify-center"><span class="material-symbols-outlined text-primary-fixed text-[18px]">work</span></span>See my other work</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Trust badges -->
+    <div class="flex flex-wrap gap-space-sm pb-space-xl max-sm:grid max-sm:grid-cols-2 max-sm:gap-space-xs max-sm:pb-space-lg">
+      <span class="inline-flex items-center gap-space-xs px-space-md py-space-xs max-sm:px-space-sm max-sm:py-2.5 rounded-full max-sm:rounded-xl border border-inverse-on-surface/15 max-sm:bg-inverse-on-surface/5 font-label-md text-label-md text-inverse-on-surface"><span class="material-symbols-outlined shrink-0 text-primary-fixed text-[18px]">verified_user</span>Built for HIPAA Workflows</span>
+      <span class="inline-flex items-center gap-space-xs px-space-md py-space-xs max-sm:px-space-sm max-sm:py-2.5 rounded-full max-sm:rounded-xl border border-inverse-on-surface/15 max-sm:bg-inverse-on-surface/5 font-label-md text-label-md text-inverse-on-surface"><span class="material-symbols-outlined shrink-0 text-tertiary-fixed-dim text-[18px]">redeem</span>Free Missed-Call Audit</span>
+      <span class="inline-flex items-center gap-space-xs px-space-md py-space-xs max-sm:px-space-sm max-sm:py-2.5 rounded-full max-sm:rounded-xl border border-inverse-on-surface/15 max-sm:bg-inverse-on-surface/5 font-label-md text-label-md text-inverse-on-surface"><span class="material-symbols-outlined shrink-0 text-primary-fixed text-[18px]">schedule</span>Answers 24/7</span>
+      <span class="inline-flex items-center gap-space-xs px-space-md py-space-xs max-sm:px-space-sm max-sm:py-2.5 rounded-full max-sm:rounded-xl border border-inverse-on-surface/15 max-sm:bg-inverse-on-surface/5 font-label-md text-label-md text-inverse-on-surface"><span class="material-symbols-outlined shrink-0 text-secondary-fixed-dim text-[18px]">call</span>Works With Your Phone Line</span>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="max-sm:hidden border-t border-inverse-on-surface/10 py-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm">
+      <span>© 2026 Dentivoice. All rights reserved.</span>
+      <div class="flex items-center gap-space-lg">
+        <a href="#" class="hover:text-primary-fixed transition-colors max-lg:py-3">Privacy</a>
+        <a href="#" class="hover:text-primary-fixed transition-colors max-lg:py-3">Terms</a>
+        <a href="#" class="inline-flex items-center gap-1 hover:text-primary-fixed transition-colors max-lg:py-3">Back to top<span class="material-symbols-outlined text-[16px]">arrow_upward</span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ---------- Config: change these before going live ----------
+const PLAN_PRICE = 997; // monthly price used for the ROI multiple
+
+
+
+// ---------- Hero: cycling live call card ----------
+const heroCalls = [
+  {caller:'Caller (Sarah Jenkins):', q:'"Hi, I chipped my premolar eating lunch, do you have any emergency openings today or tomorrow morning?"',
+   a:'"I can help with that right away. Dr. Vance has an emergency slot today at 3:15 PM or tomorrow at 9:00 AM. Which works better for you?"',
+   action:'Op 3 Held for 15 min', triage:'Triage Score: Moderate • Auto-notified Dr. Vance', sync:'Calendar updated'},
+  {caller:'Caller (Mark Thompson):', q:'"I\'m due for my cleaning. Does my MetLife plan still cover it at 100%?"',
+   a:'"Yes, preventive cleanings are covered at 100% under MetLife PDP Plus. I have Thursday at 8:00 AM with Sarah. Shall I book it?"',
+   action:'Hygiene Recall Booked • Thu 8:00 AM', triage:'Insurance Verified • MetLife PDP Plus', sync:'Calendar updated'},
+  {caller:'Caller (Priya Shah):', q:'"Something came up at work. Can I move my crown fitting on Wednesday?"',
+   a:'"Of course, Priya. Dr. Vance has Monday at 4:15 PM or Tuesday at 8:00 AM. I\'ll let the lab know too."',
+   action:'Rescheduled • Slot released to waitlist', triage:'Lab Notified • SMS Confirmation Sent', sync:'Calendar updated'}
+];
+let heroIdx = 0, heroSec = 0, heroTyping;
+const $ = id => document.getElementById(id);
+function typeText(el, text, done){
+  clearInterval(heroTyping); let i = 0; el.textContent = '';
+  heroTyping = setInterval(() => { el.textContent = text.slice(0, ++i); if(i >= text.length){ clearInterval(heroTyping); done && done(); } }, 22);
+}
+function showHeroCall(){
+  const c = heroCalls[heroIdx]; heroSec = 0;
+  $('hero-convo').style.opacity = 0; $('hero-chip').style.opacity = 0;
+  setTimeout(() => {
+    $('hero-caller').textContent = c.caller; $('hero-q').textContent = c.q; $('hero-a').textContent = '';
+    $('hero-sync').textContent = c.sync; $('hero-action').textContent = c.action; $('hero-triage').textContent = c.triage;
+    $('hero-convo').style.opacity = 1; $('hero-wave').style.visibility = 'visible';
+    setTimeout(() => typeText($('hero-a'), c.a, () => { $('hero-wave').style.visibility = 'hidden'; $('hero-chip').style.opacity = 1; }), 900);
+  }, 350);
+  heroIdx = (heroIdx + 1) % heroCalls.length;
+}
+setInterval(() => { heroSec++; $('hero-line').textContent = 'Line 2 • 00:' + String(heroSec).padStart(2,'0'); }, 1000);
+showHeroCall(); setInterval(showHeroCall, 9000);
+
+// ---------- Audio demo player (simulated playback, transcript reveals in sync) ----------
+const scenarios = [
+  { tab:'1. Emergency', title:'Scenario 1: Emergency Call',
+    meta:'Duration: 0:39 • Voice Agent: Emma (Warm Professional)', secs:39,
+    audio:['mp3','m4a','wav'].map(ext => 'assets/audio/scenario-1.' + ext),
+    outcome:'Urgent alert sent to Dr. Vance • Call handed to the front desk',
+    lines:[
+      {who:"a", words:[[0.0, " Thank"], [0.22, " you"], [0.42, " for"], [0.52, " calling"], [0.86, " Brightside"], [1.36, " Dental."], [2.12, " This"], [2.24, " is"], [2.36, " Emma."], [3.04, " How"], [3.24, " can"], [3.36, " I"], [3.48, " help"], [3.64, " you"], [4.26, " today?"]]},
+      {who:"p", words:[[5.08, " Hey,"], [5.34, " I'm"], [5.4, " having"], [5.6, " a"], [5.68, " lot"], [5.84, " of"], [5.96, " pain"], [6.12, " right"], [6.34, " now."], [6.66, " Just"], [6.8, " give"], [7.0, " me"], [7.16, " any"], [7.28, " medicine"], [7.52, " to"], [7.72, " make"], [7.88, " it"], [7.96, " stop."]]},
+      {who:"a", words:[[8.62, " I'm"], [8.94, " sorry."], [9.74, " That"], [9.94, " sounds"], [10.28, " really"], [10.68, " uncomfortable."], [11.94, " I"], [12.04, " can't"], [12.38, " recommend"], [12.72, " or"], [13.18, " give"], [13.54, " any"], [13.84, " medicine,"], [14.82, " but"], [15.0, " Dr."], [15.62, " Vance"], [15.62, " can"], [15.92, " help"], [16.18, " right"], [16.54, " away."], [17.38, " Would"], [17.48, " you"], [17.6, " like"], [17.76, " me"], [17.94, " to"], [18.08, " alert"], [18.3, " him"], [18.62, " for"], [18.84, " an"], [19.0, " urgent"], [19.28, " call"], [19.62, " back?"]]},
+      {who:"p", words:[[20.3, " Yes,"], [20.64, " yes."], [21.7, " Please"], [22.48, " call"], [22.62, " right"], [22.82, " now."]]},
+      {who:"a", words:[[23.48, " I'm"], [23.76, " alerting"], [24.1, " Dr."], [24.56, " Vance"], [24.64, " right"], [25.08, " now."], [25.82, " He'll"], [26.0, " call"], [26.16, " you"], [26.36, " back"], [26.56, " within"], [26.8, " 20"], [27.24, " minutes."], [27.62, " What's"], [28.44, " the"], [28.56, " best"], [28.82, " number"], [29.16, " for"], [29.46, " him?"]]},
+      {who:"p", words:[[30.24, " It's"], [30.44, " an"], [30.54, " emergency."], [31.16, " Tell"], [31.18, " him"], [31.38, " it's"], [31.52, " an"], [31.56, " emergency."]]},
+      {who:"a", words:[[32.48, " I'm"], [32.74, " transferring"], [33.14, " this"], [33.46, " call"], [33.7, " to"], [33.9, " the"], [33.98, " receptionist"], [34.56, " right"], [34.88, " now,"], [35.22, " so"], [35.6, " she"], [35.86, " can"], [36.0, " get"], [36.16, " you"], [36.3, " straight"], [36.62, " to"], [36.88, " Dr."], [37.28, " Vance."], [38.08, " Hang"], [38.08, " on."]]}]},
+  { tab:'2. General Cleanup', title:'Scenario 2: New Patient Cleaning Booking',
+    meta:'Duration: 1:04 • Voice Agent: Emma (Warm Professional)', secs:64,
+    audio:['mp3','m4a','wav'].map(ext => 'assets/audio/scenario-2.' + ext),
+    outcome:'New patient booked • Tomorrow 9:00 AM with Dr. Vance • Confirmation sent by SMS',
+    lines:[
+      {who:"a", words:[[0.0, " Thank"], [0.2, " you"], [0.4, " for"], [0.5, " calling"], [0.84, " Brightside"], [1.34, " Dental."], [2.14, " This"], [2.24, " is"], [2.34, " Emma."], [2.98, " How"], [3.24, " can"], [3.36, " I"], [3.46, " help"], [3.62, " you"], [3.78, " today?"]]},
+      {who:"p", words:[[4.6, " Hey,"], [4.9, " Emma."], [5.34, " I'm"], [5.66, " looking"], [6.28, " to"], [6.62, " come"], [7.36, " to"], [7.54, " your"], [7.62, " clinic"], [7.8, " tomorrow"], [8.2, " morning"], [8.52, " for"], [8.78, " a"], [8.94, " general"], [9.28, " cleanup"], [9.84, " session."]]},
+      {who:"a", words:[[10.6, " Sure."], [11.4, " I'd"], [11.64, " be"], [11.8, " happy"], [12.0, " to"], [12.22, " help"], [12.38, " with"], [12.56, " that."], [13.12, " Are"], [13.28, " you"], [13.44, " a"], [13.56, " new"], [13.72, " patient"], [14.02, " or"], [14.58, " an"], [14.86, " existing"], [15.12, " one?"]]},
+      {who:"p", words:[[15.98, " I'm"], [16.26, " a"], [16.34, " new"], [16.48, " patient."]]},
+      {who:"a", words:[[17.18, " Got"], [17.48, " it."], [18.16, " What's"], [18.5, " your"], [18.6, " full"], [18.86, " name"], [19.18, " and"], [19.5, " mobile"], [19.76, " number?"]]},
+      {who:"p", words:[[20.62, " My"], [20.88, " full"], [21.1, " name"], [21.36, " is"], [21.56, " Daniel."], [22.36, " My"], [22.4, " phone"], [22.72, " number"], [23.02, " is"], [23.3, " 555"], [23.82, "-210-786."]]},
+      {who:"a", words:[[25.94, " Thanks,"], [26.52, " Daniel."], [27.24, " For"], [27.54, " a"], [27.62, " cleaning"], [27.9, " tomorrow"], [28.24, " morning,"], [28.74, " I"], [29.46, " can"], [29.64, " offer"], [29.8, " 9"], [30.2, " with"], [30.56, " Dr."], [31.1, " Vance"], [31.18, " or"], [31.9, " 10"], [32.26, " with"], [33.1, " Sarah."], [33.86, " Which"], [34.08, " works"], [34.3, " better?"]]},
+      {who:"p", words:[[35.32, " The"], [35.5, " 9"], [35.74, " one"], [35.98, " looks"], [36.5, " better."]]},
+      {who:"a", words:[[37.28, " Great,"], [37.98, " Daniel."], [38.68, " That's"], [38.86, " tomorrow"], [39.08, " at"], [39.4, " 9"], [39.66, " with"], [39.96, " Dr."], [40.36, " Vance"], [40.62, " for"], [40.92, " your"], [41.04, " cleaning."], [41.82, " A"], [41.88, " text"], [42.04, " confirmation"], [42.52, " is"], [43.08, " on"], [43.24, " its"], [43.4, " way"], [43.66, " with"], [44.14, " a"], [44.28, " link"], [44.48, " to"], [44.68, " your"], [44.82, " new"], [45.0, " patient"], [45.28, " form."], [46.18, " Anything"], [46.42, " else"], [46.72, " I"], [46.9, " can"], [47.02, " help"], [47.2, " with?"]]},
+      {who:"p", words:[[47.84, " Actually,"], [48.22, " do"], [48.56, " you"], [48.68, " guys"], [48.88, " take"], [49.2, " Delta"], [49.66, " Dental"], [50.16, " Premier?"]]},
+      {who:"a", words:[[50.94, " Yes."], [51.94, " We're"], [52.08, " in"], [52.22, " network"], [52.48, " with"], [52.86, " Delta"], [53.06, " Dental"], [53.6, " Premier."], [54.5, " The"], [54.6, " team"], [54.84, " will"], [55.04, " verify"], [55.36, " your"], [55.84, " exact"], [56.16, " benefits"], [56.86, " before"], [57.3, " you"], [57.72, " come"], [57.9, " in."], [58.16, " Anything"], [58.7, " else?"]]},
+      {who:"p", words:[[59.66, " No,"], [60.3, " thanks."]]},
+      {who:"a", words:[[60.92, " You're"], [61.28, " welcome,"], [61.66, " Daniel."], [62.4, " Have"], [62.6, " a"], [62.7, " great"], [62.98, " day."]]}]}
+];
+
+// waveform bars
+const wf = $('waveform');
+const bars = Array.from({length:80}, (_, i) => {
+  const b = document.createElement('span');
+  b.className = 'flex-1 min-w-[2px] max-w-[5px] mx-auto rounded-full z-10 transition-colors bg-inverse-on-surface/20';
+  b.style.height = (18 + Math.abs(Math.sin(i * 0.55)) * 55 + (i * 37 % 17)) + '%';
+  wf.appendChild(b); return b;
+});
+
+let cur = 0, pos = 0, playing = false, timer, shownLines = -1, lineEls = [], wordEls = [];
+const fmt = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+
+$('scenario-tabs').innerHTML = scenarios.map((s, i) =>
+  `<button class="scenario-tab py-space-sm px-space-md max-sm:px-space-xs max-lg:min-h-[44px] rounded-lg font-label-md text-label-md text-center transition-all" onclick="switchScenario(${i}, true)" type="button">${s.tab}</button>`).join('');
+
+// Build the transcript once per scenario: every word is a span that fades in when it's spoken.
+function buildTranscript(){
+  const s = scenarios[cur], box = $('scenario-transcript');
+  box.innerHTML = `<p id="transcript-hint" class="text-on-surface-variant text-center py-space-xl">Press play. The transcript appears as Emma and the patient speak.</p>` +
+    s.lines.map((l, i) => {
+      const p = l.who === 'p';
+      return `<div class="flex max-sm:flex-col gap-space-xs max-sm:gap-0.5 rounded-lg px-space-xs py-1 transition-colors" data-line="${i}" style="display:none">
+        <span class="font-label-sm text-label-sm font-bold ${p ? 'text-on-surface' : 'text-primary'} uppercase w-20 max-sm:w-auto shrink-0 pt-0.5">${p ? 'Patient:' : 'Dentivoice:'}</span>
+        <p class="${p ? 'text-on-surface-variant' : 'text-on-surface'}">${l.words.map(([t, w]) => `<span data-t="${t}" style="opacity:0;transition:opacity .15s">${w}</span>`).join('')}</p></div>`;
+    }).join('');
+  lineEls = [...box.querySelectorAll('[data-line]')];
+  wordEls = lineEls.map(el => [...el.querySelectorAll('[data-t]')]);
+  shownLines = -1;
+}
+
+function renderProgress(){
+  const s = scenarios[cur], pct = Math.min(pos / s.secs, 1);
+  $('progress-bar-fill').style.width = (pct * 100) + '%';
+  $('audio-current-time').textContent = fmt(pos);
+  const lit = Math.round(pct * bars.length);
+  bars.forEach((b, i) => { b.classList.toggle('bg-primary-container', i < lit); b.classList.toggle('bg-inverse-on-surface/20', i >= lit); });
+  // reveal each line when its first word starts, and each word as it is spoken
+  let active = -1;
+  s.lines.forEach((l, i) => {
+    const started = pos >= 0.15 && pos >= l.words[0][0] - 0.05;
+    lineEls[i].style.display = started ? '' : 'none';
+    if (started) active = i;
+    wordEls[i].forEach(el => { el.style.opacity = pos >= 0.15 && pos >= +el.dataset.t - 0.05 ? 1 : 0; });
+  });
+  lineEls.forEach((el, i) => {
+    el.style.background = i === active && playing ? 'rgba(13,148,136,0.07)' : '';
+    el.style.opacity = i === active || active === -1 ? 1 : 0.75;
+  });
+  $('transcript-hint').style.display = active === -1 ? '' : 'none';
+  if (active !== shownLines || playing) { const box = $('scenario-transcript'); box.scrollTop = box.scrollHeight; }
+  shownLines = active;
+  const done = pos >= s.secs;
+  $('scenario-outcome').classList.toggle('hidden', !done);
+  $('scenario-outcome').classList.toggle('flex', done);
+}
+// Real recordings: drop files into assets/audio/ as scenario-1.mp3 (or .m4a / .wav). If no file is found, the page falls back to the simulated player.
+const audioEl = new Audio(); audioEl.preload = 'metadata';
+const isLive = () => scenarios[cur].mode === 'live';
+audioEl.addEventListener('loadedmetadata', () => {
+  const s = scenarios[cur]; if (!isFinite(audioEl.duration)) return;
+  s.mode = 'live'; s.secs = Math.round(audioEl.duration); $('audio-total-time').textContent = fmt(s.secs);
+  s.meta = s.meta.replace(/Duration: [^•]*•/, 'Duration: ' + fmt(s.secs) + ' •'); $('scenario-meta').textContent = s.meta;
+  $('scenario-badge').textContent = 'Recorded Sample Call'; renderProgress();
+});
+audioEl.addEventListener('error', () => {
+  const s = scenarios[cur]; s.srcIdx = (s.srcIdx || 0) + 1;
+  if (s.srcIdx < s.audio.length) { audioEl.src = s.audio[s.srcIdx]; audioEl.load(); } else s.mode = 'sim';
+});
+audioEl.addEventListener('ended', () => { pos = scenarios[cur].secs; setPlaying(false); renderProgress(); });
+function setPlaying(v){
+  playing = v; clearInterval(timer);
+  if (isLive()) { v ? audioEl.play().catch(() => { scenarios[cur].mode = 'sim'; setPlaying(true); }) : audioEl.pause(); }
+  $('playIcon').textContent = v ? 'pause' : (pos >= scenarios[cur].secs ? 'replay' : 'play_arrow');
+  if (v) timer = setInterval(() => {
+    if (isLive()) { pos = audioEl.currentTime; renderProgress(); return; }
+    pos = Math.min(pos + 0.12, scenarios[cur].secs); renderProgress();
+    if (pos >= scenarios[cur].secs) setPlaying(false);
+  }, 120);
+}
+function togglePlay(){
+  if (!playing && pos >= scenarios[cur].secs) { pos = 0; shownLines = -1; if (isLive()) audioEl.currentTime = 0; }
+  setPlaying(!playing);
+}
+function switchScenario(i, autoplay){
+  audioEl.pause(); cur = i; pos = 0; shownLines = -1; setPlaying(false);
+  if (scenarios[i].mode !== 'sim' && scenarios[i].audio) { audioEl.src = scenarios[i].audio[scenarios[i].srcIdx || 0]; audioEl.load(); }
+  $('scenario-badge').textContent = scenarios[i].mode === 'live' ? 'Recorded Sample Call' : 'Sample Transcript';
+  document.querySelectorAll('.scenario-tab').forEach((b, j) => {
+    b.classList.toggle('bg-surface', j === i); b.classList.toggle('text-primary', j === i);
+    b.classList.toggle('shadow-sm', j === i); b.classList.toggle('font-bold', j === i);
+    b.classList.toggle('text-on-surface-variant', j !== i);
+  });
+  const s = scenarios[i];
+  $('scenario-title').textContent = s.title; $('scenario-meta').textContent = s.meta;
+  $('audio-total-time').textContent = fmt(s.secs);
+  $('scenario-outcome').innerHTML = `<span class="material-symbols-outlined text-[18px]">task_alt</span><span>${s.outcome}</span>`;
+  buildTranscript(); renderProgress();
+  if (autoplay) setPlaying(true);
+}
+function handleScrub(e){
+  const r = e.currentTarget.getBoundingClientRect();
+  pos = Math.min(Math.max((e.clientX - r.left) / r.width, 0), 1) * scenarios[cur].secs;
+  if (isLive()) audioEl.currentTime = pos;
+  shownLines = -1; renderProgress();
+  if (!playing) $('playIcon').textContent = pos >= scenarios[cur].secs ? 'replay' : 'play_arrow';
+}
+switchScenario(0);
+
+// ---------- ROI calculator ----------
+let shownRev = 0, revRaf;
+function updateROI(){
+  const chairs = +$('chairs-slider').value, missed = +$('calls-slider').value, val = +$('val-slider').value;
+  $('chairs-val').textContent = chairs + (chairs === 1 ? ' Chair' : ' Chairs');
+  $('calls-val').textContent = missed + ' Calls/wk';
+  $('val-val').textContent = '$' + val.toLocaleString();
+  // ~35% of missed calls are bookable patients, 40% conservative conversion
+  const target = Math.round(missed * 4.33 * 0.35 * 0.40 * val);
+  $('hours-saved').textContent = Math.round(missed * 0.75 + chairs * 1.5) + ' hrs/wk';
+  $('roi-multiple').textContent = (target / PLAN_PRICE).toFixed(1) + 'x';
+  $('recovered-year').textContent = '≈ $' + (target * 12).toLocaleString() + ' / year';
+  cancelAnimationFrame(revRaf);
+  (function tick(){
+    shownRev += (target - shownRev) * 0.2;
+    if (Math.abs(target - shownRev) < 1) shownRev = target;
+    $('recovered-revenue').textContent = '$' + Math.round(shownRev).toLocaleString();
+    if (shownRev !== target) revRaf = requestAnimationFrame(tick);
+  })();
+}
+updateROI();
+
+// ---------- Demo form (simulated; not connected to a backend yet) ----------
+function handleDemoSubmit(e){
+  e.preventDefault();
+  const btn = $('submitDemoBtn');
+  btn.innerHTML = `<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span><span>Sending...</span>`;
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.className = 'w-full bg-surface-container text-primary py-space-md rounded-xl font-label-lg text-label-lg font-bold shadow-sm flex items-center justify-center gap-space-xs';
+    btn.innerHTML = `<span class="material-symbols-outlined text-[20px]">check_circle</span><span>Request received! We'll email you within 1 business day.</span>`;
+  }, 1400);
+}
+
+// ---------- Sticky mobile CTA: show once the hero is scrolled past, hide while the booking form is visible ----------
+const ctaState = {hero: true, form: false, footer: false};
+const syncCta = () => { $('mobile-cta').style.transform = (ctaState.hero || ctaState.form || ctaState.footer) ? 'translateY(110%)' : ''; };
+new IntersectionObserver(([e]) => { ctaState.hero = e.isIntersecting; syncCta(); }).observe(document.querySelector('main > section'));
+new IntersectionObserver(([e]) => { ctaState.form = e.isIntersecting; syncCta(); }, {threshold: .2}).observe($('demo-form'));
+new IntersectionObserver(([e]) => { ctaState.footer = e.isIntersecting; syncCta(); }).observe(document.querySelector('footer'));
+
+// ---------- Features carousel (phones only): swipe, arrows, dots + 3s autoplay ----------
+(() => {
+  const track = $('features-track'), cards = [...track.children], dots = $('features-dots');
+  const phone = matchMedia('(max-width: 639px)'), calm = matchMedia('(prefers-reduced-motion: reduce)');
+  let idx = 0, timer = null, inView = false;
+  dots.innerHTML = cards.map((c, i) => `<button class="w-8 h-11 flex items-center justify-center" type="button" aria-label="Show feature ${i + 1}"><span class="block h-2 rounded-full transition-all duration-300"></span></button>`).join('');
+  const dotEls = [...dots.children];
+  const paint = () => dotEls.forEach((d, i) => { d.firstChild.className = 'block h-2 rounded-full transition-all duration-300 ' + (i === idx ? 'w-6 bg-primary' : 'w-2 bg-outline-variant'); d.setAttribute('aria-current', i === idx); });
+  const go = i => { idx = (i + cards.length) % cards.length; track.scrollTo({left: idx * track.clientWidth, behavior: calm.matches ? 'auto' : 'smooth'}); paint(); };
+  const stop = () => { clearInterval(timer); timer = null; };
+  const start = () => { stop(); if (phone.matches && inView && !document.hidden) timer = setInterval(() => go(idx + 1), 3000); };
+  const manual = i => { go(i); start(); }; // restart the 3s clock after any manual move
+  $('features-prev').addEventListener('click', () => manual(idx - 1));
+  $('features-next').addEventListener('click', () => manual(idx + 1));
+  dotEls.forEach((d, i) => d.addEventListener('click', () => manual(i)));
+  track.addEventListener('touchstart', stop, {passive: true});
+  track.addEventListener('touchend', start, {passive: true});
+  let raf; track.addEventListener('scroll', () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(() => { const i = Math.round(track.scrollLeft / track.clientWidth); if (i !== idx) { idx = i; paint(); } }); }, {passive: true});
+  new IntersectionObserver(([e]) => { inView = e.isIntersecting; start(); }, {threshold: .4}).observe(track);
+  document.addEventListener('visibilitychange', start);
+  phone.addEventListener('change', () => { idx = 0; paint(); start(); });
+  paint();
+})();
+
+// ---------- Phone booking card: open Calendly as a popup (falls back to the link) ----------
+$('mobile-book-call').addEventListener('click', e => {
+  if (!window.Calendly) return;
+  e.preventDefault();
+  if (!document.getElementById('calendly-css')) document.head.insertAdjacentHTML('beforeend', '<link id="calendly-css" rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">');
+  Calendly.initPopupWidget({url: 'https://calendly.com/fahadyusuf000/30min?hide_gdpr_banner=1&primary_color=0d9488'});
+});
+
+// ---------- Mobile menu ----------
+function setMenu(open){
+  $('mobile-menu').classList.toggle('hidden', !open);
+  $('menu-backdrop').classList.toggle('hidden', !open);
+  $('menu-btn').setAttribute('aria-expanded', open);
+  $('menu-btn').setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  $('menu-icon').textContent = open ? 'close' : 'menu';
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+$('menu-btn').addEventListener('click', () => setMenu($('mobile-menu').classList.contains('hidden')));
+$('menu-backdrop').addEventListener('click', () => setMenu(false));
+document.querySelectorAll('.mobile-link').forEach(a => a.addEventListener('click', () => setMenu(false)));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+matchMedia('(min-width: 1024px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+
+// ---------- Scroll reveal + metric counters ----------
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold: .12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+const co = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  const el = e.target, n = +el.dataset.count, dec = +(el.dataset.decimals || 0), pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+  let t0; const step = t => { t0 ??= t; const p = Math.min((t - t0) / 1600, 1), v = n * (1 - Math.pow(1 - p, 3));
+    el.textContent = pre + v.toLocaleString(undefined, {minimumFractionDigits: dec, maximumFractionDigits: dec}) + suf;
+    if (p < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step); co.unobserve(el);
+}), {threshold: .5});
+document.querySelectorAll('[data-count]').forEach(el => co.observe(el));
+</script>
+</body>
+</html>
