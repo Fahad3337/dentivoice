@@ -40,3 +40,9 @@
   #features-track{scrollbar-width:none}
   #features-track::-webkit-scrollbar{display:none}
 }
+@media print{
+  body > :not(main), main > :not(#roi-calculator), #roi-calculator .roi-noprint{display:none!important}
+  main{padding-top:0!important}
+  #roi-calculator{padding:0!important;background:#fff!important}
+  #roi-results{opacity:1!important;transform:none!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}

@@ -26,9 +26,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ4g5UY9l-33DKDKbnWE1OiOZVafT5dqyHDss3eEQiey3i3KSrO1lSsoLVkkbG4MGkSHrwFcmtY5UwtZ0hnKOwQJ_3ePfPMmG1Aladd51GnDs9R3LWJx2zly2rGPRHFZzKNB-WkMTa7bhN3DUpgT5yQhs5qxRW3rrIRd19qB99bY5xmFfBJb-DFu2qvBWOiDYVVmN2o_Oy6X0k4zeutVyxaEs34r1QUenZ6o8ZUH7uyNI-J7dH53gE" fetchpriority="high">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&icon_names=add,arrow_forward,arrow_upward,calculate,calendar_month,call,chat,check_circle,chevron_left,chevron_right,close,description,emergency,event_available,groups,health_and_safety,help,menu,pause,payments,person,phone_in_talk,play_arrow,play_circle,progress_activity,record_voice_over,redeem,replay,schedule,summarize,support_agent,sync,task_alt,verified,verified_user,work&display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&icon_names=add,arrow_forward,arrow_upward,calculate,calendar_month,call,chat,check_circle,chevron_left,chevron_right,close,description,emergency,event_available,groups,health_and_safety,help,menu,pause,payments,person,phone_in_talk,play_arrow,play_circle,print,progress_activity,record_voice_over,redeem,replay,schedule,summarize,support_agent,sync,task_alt,verified,verified_user,work&display=block">
 <!-- Compiled from src/input.css + tailwind.config.js. Rebuild after editing classes: npx tailwindcss@3 -i src/input.css -o assets/styles.css --minify -->
-<link rel="stylesheet" href="assets/styles.css?v=17">
+<link rel="stylesheet" href="assets/styles.css?v=18">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
 {
@@ -408,66 +408,68 @@
 <!-- ROI CALCULATOR -->
 <section class="w-full py-space-3xl max-sm:py-space-xl bg-surface" id="roi-calculator">
   <div class="max-w-7xl mx-auto px-gutter lg:px-margin">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
       <div class="lg:col-span-7 space-y-space-md reveal">
-        <div class="inline-flex items-center gap-space-xs px-space-md py-1 rounded-full bg-primary-fixed/40 text-on-primary-fixed font-label-md text-label-md font-semibold">
-          <span class="material-symbols-outlined text-[18px]">calculate</span>Practice Production Calculator
+        <div class="roi-noprint inline-flex items-center gap-space-xs px-space-md py-1 rounded-full bg-primary-fixed/40 text-on-primary-fixed font-label-md text-label-md font-semibold">
+          <span class="material-symbols-outlined text-[18px]">calculate</span>Practice Impact Calculator
         </div>
-        <h2 class="font-headline-lg-mobile text-headline-lg-mobile sm:font-headline-lg sm:text-headline-lg text-on-surface font-bold">How Much Are Missed Calls Costing Your Dental Practice?</h2>
-        <p class="font-body-md text-body-md text-on-surface-variant">Calls that hit voicemail during lunch, peak check-in, or after hours are patients who may book with the next clinic on Google. Plug in your own numbers to see what that costs.</p>
+        <h2 class="font-headline-lg-mobile text-headline-lg-mobile sm:font-headline-lg sm:text-headline-lg text-on-surface font-bold">See what Dentivoice could add to your practice</h2>
+        <p class="roi-noprint font-body-md text-body-md text-on-surface-variant">Calls that hit voicemail during lunch, peak check-in, or after hours are patients who may book with the next clinic on Google. Enter your own numbers for an estimate in seconds.</p>
 
-        <div class="bg-surface-container-lowest p-space-lg max-sm:p-space-md rounded-2xl shadow-sm space-y-space-lg mt-space-md">
-          <div class="space-y-space-xs">
-            <div class="flex justify-between items-center max-sm:gap-space-sm">
-              <label class="font-label-lg text-label-lg text-on-surface font-semibold" for="chairs-slider">Active Operatories / Chairs</label>
-              <span class="font-headline-sm text-headline-sm max-sm:text-[18px] text-primary font-bold whitespace-nowrap" id="chairs-val">4 Chairs</span>
+        <div class="roi-noprint bg-surface-container-lowest p-space-lg max-sm:p-space-md rounded-2xl shadow-sm mt-space-md">
+          <h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-space-md">Tell us about your practice</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-space-lg gap-y-space-md">
+            <div>
+              <label class="block font-label-lg text-label-lg text-on-surface font-semibold" for="roi-weeks">Weeks Open Per Year</label>
+              <p class="font-label-md text-label-md text-on-surface-variant font-normal">how many weeks your practice operates</p>
+              <input class="mt-space-xs w-full h-12 rounded-xl border border-outline-variant bg-surface-container-lowest px-4 text-[16px] text-on-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" id="roi-weeks" type="number" inputmode="numeric" min="1" max="52" step="1" value="50" oninput="updateROI()">
             </div>
-            <input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer" id="chairs-slider" max="15" min="1" oninput="updateROI()" type="range" value="4">
-            <div class="flex justify-between text-on-surface-variant font-label-sm text-label-sm"><span>1 Solo Chair</span><span>15 Multi-Op DSO</span></div>
-          </div>
-          <div class="space-y-space-xs">
-            <div class="flex justify-between items-center max-sm:gap-space-sm">
-              <label class="font-label-lg text-label-lg text-on-surface font-semibold" for="calls-slider">Unanswered Patient Calls Per Week</label>
-              <span class="font-headline-sm text-headline-sm max-sm:text-[18px] text-primary font-bold whitespace-nowrap" id="calls-val">28 Calls/wk</span>
+            <div>
+              <label class="block font-label-lg text-label-lg text-on-surface font-semibold" for="roi-rate">Front Desk Hourly Rate</label>
+              <p class="font-label-md text-label-md text-on-surface-variant font-normal">what you pay your receptionist</p>
+              <div class="relative mt-space-xs">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">$</span>
+                <input class="w-full h-12 rounded-xl border border-outline-variant bg-surface-container-lowest pl-8 pr-4 text-[16px] text-on-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" id="roi-rate" type="number" inputmode="decimal" min="0" step="1" value="20" oninput="updateROI()">
+              </div>
             </div>
-            <input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer" id="calls-slider" max="100" min="5" oninput="updateROI()" type="range" value="28">
-            <div class="flex justify-between text-on-surface-variant font-label-sm text-label-sm"><span>5 Calls<span class="max-sm:hidden"> (Minimal)</span></span><span>100 Calls<span class="max-sm:hidden"> (High-Volume)</span></span></div>
-          </div>
-          <div class="space-y-space-xs">
-            <div class="flex justify-between items-center max-sm:gap-space-sm">
-              <label class="font-label-lg text-label-lg text-on-surface font-semibold" for="val-slider">Avg. 1st Year Patient Production</label>
-              <span class="font-headline-sm text-headline-sm max-sm:text-[18px] text-primary font-bold whitespace-nowrap" id="val-val">$1,450</span>
+            <div>
+              <label class="block font-label-lg text-label-lg text-on-surface font-semibold" for="roi-appts">Scheduled Appointments</label>
+              <p class="font-label-md text-label-md text-on-surface-variant font-normal">appointments booked per week</p>
+              <input class="mt-space-xs w-full h-12 rounded-xl border border-outline-variant bg-surface-container-lowest px-4 text-[16px] text-on-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" id="roi-appts" type="number" inputmode="numeric" min="0" step="1" value="31" oninput="updateROI()">
             </div>
-            <input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer" id="val-slider" max="3500" min="600" oninput="updateROI()" step="50" type="range" value="1450">
-            <div class="flex justify-between text-on-surface-variant font-label-sm text-label-sm"><span>$600<span class="max-sm:hidden"> (Basic Cleaning/Exam)</span></span><span>$3,500<span class="max-sm:hidden"> (Restorative &amp; Implants)</span></span></div>
+            <div>
+              <label class="block font-label-lg text-label-lg text-on-surface font-semibold" for="roi-visit">Average Revenue per Visit</label>
+              <p class="font-label-md text-label-md text-on-surface-variant font-normal">avg. collected per patient visit</p>
+              <div class="relative mt-space-xs">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">$</span>
+                <input class="w-full h-12 rounded-xl border border-outline-variant bg-surface-container-lowest pl-8 pr-4 text-[16px] text-on-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" id="roi-visit" type="number" inputmode="decimal" min="0" step="10" value="400" oninput="updateROI()">
+              </div>
+            </div>
+            <div>
+              <label class="block font-label-lg text-label-lg text-on-surface font-semibold" for="roi-missed">Missed Appointments</label>
+              <p class="font-label-md text-label-md text-on-surface-variant font-normal">no-shows and cancellations per week</p>
+              <input class="mt-space-xs w-full h-12 rounded-xl border border-outline-variant bg-surface-container-lowest px-4 text-[16px] text-on-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" id="roi-missed" type="number" inputmode="numeric" min="0" step="1" value="8" oninput="updateROI()">
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="lg:col-span-5 reveal">
+      <div class="roi-noprint lg:col-span-5 reveal">
         <div class="rounded-3xl max-sm:rounded-2xl bg-inverse-surface text-inverse-on-surface p-space-xl max-sm:p-space-lg shadow-xl relative overflow-hidden">
           <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-primary/20 rounded-full blur-2xl"></div>
           <div class="relative z-10 space-y-space-lg">
             <div class="flex items-center gap-space-xs">
               <span class="w-3 h-3 rounded-full bg-primary-fixed animate-ping"></span>
-              <span class="font-label-sm text-label-sm text-primary-fixed uppercase tracking-wider font-bold">Estimated Monthly Yield</span>
+              <span class="font-label-sm text-label-sm text-primary-fixed uppercase tracking-wider font-bold">Estimated Annual Impact</span>
             </div>
             <div>
-              <p class="font-body-sm text-body-sm text-inverse-on-surface/70">Recoverable Monthly Revenue:</p>
-              <div class="font-display-mobile text-display-mobile sm:font-display sm:text-display text-primary-fixed font-bold tracking-tight mt-1 tabular-nums" id="recovered-revenue">$0</div>
-              <p class="font-label-sm text-label-sm text-inverse-on-surface/80 mt-1">Based on conservative 40% conversion of captured missed calls. <span id="recovered-year" class="text-primary-fixed font-semibold"></span></p>
+              <p class="font-body-sm text-body-sm text-inverse-on-surface/70">Return on Investment:</p>
+              <div class="font-display-mobile text-display-mobile sm:font-display sm:text-display text-primary-fixed font-bold tracking-tight mt-1 tabular-nums whitespace-nowrap" id="roi-pct">0%</div>
             </div>
-            <div class="grid grid-cols-2 gap-space-md pt-space-md border-t border-inverse-on-surface/10">
-              <div class="space-y-1">
-                <p class="font-label-sm text-label-sm text-inverse-on-surface/70">Staff Hours Reclaimed:</p>
-                <p class="font-headline-md text-headline-md max-sm:text-[24px] max-sm:leading-8 whitespace-nowrap font-bold text-inverse-on-surface" id="hours-saved">0 hrs/wk</p>
-                <p class="font-label-sm text-label-sm text-inverse-on-surface/60">Front-desk admin freedom</p>
-              </div>
-              <div class="space-y-1">
-                <p class="font-label-sm text-label-sm text-inverse-on-surface/70">ROI Multiple:</p>
-                <p class="font-headline-md text-headline-md max-sm:text-[24px] max-sm:leading-8 whitespace-nowrap font-bold text-primary-fixed" id="roi-multiple">0x</p>
-                <p class="font-label-sm text-label-sm text-inverse-on-surface/60">vs. monthly plan cost</p>
-              </div>
+            <div class="pt-space-md border-t border-inverse-on-surface/10">
+              <p class="font-body-sm text-body-sm text-inverse-on-surface/70">Additional Revenue Per Year:</p>
+              <div class="font-headline-lg-mobile text-headline-lg-mobile sm:font-headline-lg sm:text-headline-lg text-inverse-on-surface font-bold tracking-tight mt-1 tabular-nums whitespace-nowrap" id="roi-rev">$0</div>
+              <p class="font-label-sm text-label-sm text-inverse-on-surface/70 mt-1">Estimate only. See the assumptions below.</p>
             </div>
             <a class="w-full inline-flex items-center justify-center gap-space-xs bg-primary text-on-primary hover:bg-primary-container px-space-lg py-space-md rounded-xl font-label-lg text-label-lg transition-transform active:scale-[0.98]" href="#demo-form">
               <span>Book a Free Demo</span><span class="material-symbols-outlined text-[18px]">arrow_forward</span>
@@ -475,6 +477,34 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="mt-space-xl max-sm:mt-space-lg bg-surface-container-lowest rounded-2xl border border-outline-variant/60 p-space-lg max-sm:p-space-md reveal" id="roi-results">
+      <div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-md">
+        <h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">What Dentivoice could do for your practice</h3>
+        <button class="roi-noprint inline-flex items-center gap-space-xs min-h-[44px] px-space-md rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container font-label-lg text-label-lg transition-colors" type="button" onclick="window.print()"><span class="material-symbols-outlined text-[20px]">print</span>Print / Save as PDF</button>
+      </div>
+      <p class="font-body-md text-body-md text-on-surface-variant" id="roi-summary"></p>
+
+      <div class="mt-space-lg overflow-x-auto">
+        <table class="w-full text-left border-collapse font-body-sm text-body-sm">
+          <thead>
+            <tr class="text-on-surface-variant font-label-md text-label-md uppercase tracking-wide">
+              <th class="py-space-sm pr-space-sm font-semibold border-b border-outline-variant" scope="col">Improvement</th>
+              <th class="py-space-sm px-space-sm font-semibold border-b border-outline-variant" scope="col">Monthly</th>
+              <th class="py-space-sm pl-space-sm font-semibold border-b border-outline-variant" scope="col">Annual</th>
+            </tr>
+          </thead>
+          <tbody class="text-on-surface">
+            <tr><th class="py-space-sm pr-space-sm font-normal border-b border-surface-container" scope="row">Hours given back to your front desk</th><td class="py-space-sm px-space-sm border-b border-surface-container tabular-nums" id="roi-hrs-mo"></td><td class="py-space-sm pl-space-sm border-b border-surface-container tabular-nums" id="roi-hrs-yr"></td></tr>
+            <tr><th class="py-space-sm pr-space-sm font-normal border-b border-surface-container" scope="row">Staff cost savings</th><td class="py-space-sm px-space-sm border-b border-surface-container tabular-nums" id="roi-staff-mo"></td><td class="py-space-sm pl-space-sm border-b border-surface-container tabular-nums" id="roi-staff-yr"></td></tr>
+            <tr><th class="py-space-sm pr-space-sm font-normal border-b border-surface-container" scope="row">Missed appointments rebooked</th><td class="py-space-sm pl-space-sm border-b border-surface-container" colspan="2" id="roi-rebooked"></td></tr>
+            <tr><th class="py-space-sm pr-space-sm font-normal border-b border-surface-container" scope="row">More of your schedule filled</th><td class="py-space-sm pl-space-sm border-b border-surface-container" colspan="2" id="roi-filled"></td></tr>
+            <tr class="bg-primary-fixed/40 font-bold text-on-primary-fixed"><th class="py-space-sm pl-space-sm pr-space-sm font-bold" scope="row">Additional revenue</th><td class="py-space-sm px-space-sm tabular-nums" id="roi-addrev-mo"></td><td class="py-space-sm pl-space-sm tabular-nums" id="roi-addrev-yr"></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-space-md font-label-md text-label-md text-on-surface-variant font-normal italic">* Estimates only, not a guarantee. They assume your front desk spends about 20 minutes of phone time per scheduled appointment and 15 minutes per missed appointment, and that Dentivoice handles about half of it; that 15% of missed appointments are rebooked; that answering calls outside staffed hours books about 5% more appointments; and a typical monthly plan cost. Your results will vary.</p>
     </div>
   </div>
 </section>
@@ -848,24 +878,43 @@ function handleScrub(e){
 switchScenario(0);
 
 // ---------- ROI calculator ----------
-let shownRev = 0, revRaf;
-function updateROI(){
-  const chairs = +$('chairs-slider').value, missed = +$('calls-slider').value, val = +$('val-slider').value;
-  $('chairs-val').textContent = chairs + (chairs === 1 ? ' Chair' : ' Chairs');
-  $('calls-val').textContent = missed + ' Calls/wk';
-  $('val-val').textContent = '$' + val.toLocaleString();
-  // ~35% of missed calls are bookable patients, 40% conservative conversion
-  const target = Math.round(missed * 4.33 * 0.35 * 0.40 * val);
-  $('hours-saved').textContent = Math.round(missed * 0.75 + chairs * 1.5) + ' hrs/wk';
-  $('roi-multiple').textContent = (target / PLAN_PRICE).toFixed(1) + 'x';
-  $('recovered-year').textContent = '≈ $' + (target * 12).toLocaleString() + ' / year';
-  cancelAnimationFrame(revRaf);
+const roiAnim = {};
+function roiShow(id, target, fmt){
+  const el = $(id);
+  cancelAnimationFrame(roiAnim[id]);
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { el.textContent = fmt(target); el._v = target; return; }
+  let cur = el._v || 0;
   (function tick(){
-    shownRev += (target - shownRev) * 0.2;
-    if (Math.abs(target - shownRev) < 1) shownRev = target;
-    $('recovered-revenue').textContent = '$' + Math.round(shownRev).toLocaleString();
-    if (shownRev !== target) revRaf = requestAnimationFrame(tick);
+    cur += (target - cur) * 0.2;
+    if (Math.abs(target - cur) < 0.5) cur = target;
+    el._v = cur; el.textContent = fmt(cur);
+    if (cur !== target) roiAnim[id] = requestAnimationFrame(tick);
   })();
+}
+function updateROI(){
+  const num = (id, min, max) => { const v = parseFloat($(id).value); return Math.min(Math.max(isFinite(v) ? v : 0, min), max); };
+  const weeks = num('roi-weeks', 1, 52), appts = num('roi-appts', 0, 5000), rate = num('roi-rate', 0, 1000), visit = num('roi-visit', 0, 100000);
+  const missed = Math.min(num('roi-missed', 0, 5000), appts);
+  // Assumptions (also stated in the footnote under the table)
+  const hrsWk = appts * (20 / 60) * 0.5 + missed * (15 / 60) * 0.5; // front-desk phone time Dentivoice takes over
+  const rebookedWk = missed * 0.15, newWk = appts * 0.05;
+  const extraWk = rebookedWk + newWk;
+  const hrsYr = hrsWk * weeks, staffYr = hrsYr * rate, revYr = extraWk * visit * weeks;
+  const costYr = PLAN_PRICE * 12, roi = (revYr + staffYr - costYr) / costYr * 100;
+  const usd = n => '$' + Math.round(n).toLocaleString('en-US');
+  const r1 = n => Math.round(n * 10) / 10;
+  const hrs = n => (n >= 100 ? Math.round(n) : r1(n)).toLocaleString('en-US') + ' hrs';
+  if (revYr + staffYr > 0) roiShow('roi-pct', roi, n => Math.round(n).toLocaleString('en-US') + '%');
+  else { cancelAnimationFrame(roiAnim['roi-pct']); $('roi-pct').textContent = '\u2014'; $('roi-pct')._v = 0; }
+  roiShow('roi-rev', revYr, usd);
+  $('roi-hrs-mo').textContent = hrs(hrsYr / 12); $('roi-hrs-yr').textContent = hrs(hrsYr);
+  $('roi-staff-mo').textContent = usd(staffYr / 12); $('roi-staff-yr').textContent = usd(staffYr);
+  $('roi-addrev-mo').textContent = usd(revYr / 12); $('roi-addrev-yr').textContent = usd(revYr);
+  $('roi-rebooked').textContent = '15% of missed appointments rebooked (about ' + r1(rebookedWk) + ' per week)';
+  $('roi-filled').textContent = appts ? 'About ' + r1(extraWk) + ' more booked appointments per week (+' + r1(extraWk / appts * 100) + '% of your week)' : 'Enter your weekly appointments to see this';
+  $('roi-summary').textContent = roi > 0
+    ? 'Based on your numbers, Dentivoice could return an estimated ' + Math.round(roi).toLocaleString('en-US') + '% on its cost. Your front desk gets back about ' + hrs(hrsYr) + ' a year (' + hrs(hrsYr / 12) + ' a month) from booking calls, rescheduling and routine questions. By rebooking missed appointments and answering calls that would have gone to voicemail, you could fill about ' + r1(extraWk) + ' more appointments a week, roughly ' + usd(revYr) + ' in additional revenue a year, plus ' + usd(staffYr) + ' in staff time.'
+    : 'With these numbers, the estimate does not cover the plan cost. Book a free call and we will look at your actual call volume together.';
 }
 updateROI();
 
