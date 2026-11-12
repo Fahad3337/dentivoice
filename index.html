@@ -28,7 +28,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&icon_names=add,arrow_forward,arrow_upward,calculate,calendar_month,call,call_split,chat,check_circle,chevron_left,chevron_right,close,description,emergency,event_available,groups,health_and_safety,help,menu,pause,payments,person,phone_in_talk,play_arrow,play_circle,print,progress_activity,record_voice_over,redeem,replay,schedule,support_agent,sync,task_alt,verified,verified_user,work&display=block">
 <!-- Compiled from src/input.css + tailwind.config.js. Rebuild after editing classes: npx tailwindcss@3 -i src/input.css -o assets/styles.css --minify -->
-<link rel="stylesheet" href="assets/styles.css?v=21">
+<link rel="stylesheet" href="assets/styles.css?v=22">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
 {
@@ -449,6 +449,12 @@
               <label class="block font-label-lg text-label-lg text-on-surface font-semibold" for="roi-missed">Weekly No-Shows &amp; Cancellations</label>
               <p class="font-label-md text-label-md text-on-surface-variant font-normal">appointments lost each week</p>
               <input class="mt-space-xs w-full h-12 rounded-xl border border-outline-variant bg-surface-container-lowest px-4 text-[16px] text-on-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" id="roi-missed" type="number" inputmode="numeric" min="0" step="1" value="8" oninput="updateROI()">
+              <p class="hidden mt-1 font-label-md text-label-md text-[#C2410C] font-normal" id="roi-cap-note">Counted as no more than your weekly appointments.</p>
+            </div>
+            <div>
+              <label class="block font-label-lg text-label-lg text-on-surface font-semibold" for="roi-calls">Missed Calls Per Week</label>
+              <p class="font-label-md text-label-md text-on-surface-variant font-normal">calls that ring out or go to voicemail</p>
+              <input class="mt-space-xs w-full h-12 rounded-xl border border-outline-variant bg-surface-container-lowest px-4 text-[16px] text-on-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary" id="roi-calls" type="number" inputmode="numeric" min="0" step="1" value="10" oninput="updateROI()">
             </div>
           </div>
         </div>
@@ -463,11 +469,11 @@
               <span class="font-label-sm text-label-sm text-primary-fixed uppercase tracking-wider font-bold">Estimated Annual Impact</span>
             </div>
             <div>
-              <p class="font-body-sm text-body-sm text-inverse-on-surface/70">Return on Investment:</p>
+              <p class="font-body-sm text-body-sm text-inverse-on-surface/70">Estimated Return on Cost:</p>
               <div class="font-display-mobile text-display-mobile sm:font-display sm:text-display text-primary-fixed font-bold tracking-tight mt-1 tabular-nums whitespace-nowrap" id="roi-pct">0%</div>
             </div>
             <div class="pt-space-md border-t border-inverse-on-surface/10">
-              <p class="font-body-sm text-body-sm text-inverse-on-surface/70">Additional Revenue Per Year:</p>
+              <p class="font-body-sm text-body-sm text-inverse-on-surface/70">New Revenue Per Year:</p>
               <div class="font-headline-lg-mobile text-headline-lg-mobile sm:font-headline-lg sm:text-headline-lg text-inverse-on-surface font-bold tracking-tight mt-1 tabular-nums whitespace-nowrap" id="roi-rev">$0</div>
               <p class="font-label-sm text-label-sm text-inverse-on-surface/70 mt-1">Estimate only. See the assumptions below.</p>
             </div>
@@ -497,14 +503,15 @@
           </thead>
           <tbody class="text-on-surface">
             <tr><th class="py-space-sm pr-space-sm font-normal border-b border-surface-container" scope="row">Front-desk time freed up</th><td class="py-space-sm px-space-sm border-b border-surface-container tabular-nums" id="roi-hrs-mo"></td><td class="py-space-sm pl-space-sm border-b border-surface-container tabular-nums" id="roi-hrs-yr"></td></tr>
-            <tr><th class="py-space-sm pr-space-sm font-normal border-b border-surface-container" scope="row">Labor cost saved</th><td class="py-space-sm px-space-sm border-b border-surface-container tabular-nums" id="roi-staff-mo"></td><td class="py-space-sm pl-space-sm border-b border-surface-container tabular-nums" id="roi-staff-yr"></td></tr>
+            <tr><th class="py-space-sm pr-space-sm font-normal border-b border-surface-container" scope="row">Value of that staff time (not counted in the return)</th><td class="py-space-sm px-space-sm border-b border-surface-container tabular-nums" id="roi-staff-mo"></td><td class="py-space-sm pl-space-sm border-b border-surface-container tabular-nums" id="roi-staff-yr"></td></tr>
+            <tr><th class="py-space-sm pr-space-sm font-normal border-b border-surface-container" scope="row">Missed calls turned into bookings</th><td class="py-space-sm pl-space-sm border-b border-surface-container" colspan="2" id="roi-callsbook"></td></tr>
             <tr><th class="py-space-sm pr-space-sm font-normal border-b border-surface-container" scope="row">Cancellations won back</th><td class="py-space-sm pl-space-sm border-b border-surface-container" colspan="2" id="roi-rebooked"></td></tr>
-            <tr><th class="py-space-sm pr-space-sm font-normal border-b border-surface-container" scope="row">Extra bookings</th><td class="py-space-sm pl-space-sm border-b border-surface-container" colspan="2" id="roi-filled"></td></tr>
+            <tr><th class="py-space-sm pr-space-sm font-normal border-b border-surface-container" scope="row">Extra bookings in total</th><td class="py-space-sm pl-space-sm border-b border-surface-container" colspan="2" id="roi-filled"></td></tr>
             <tr class="bg-primary-fixed/40 font-bold text-on-primary-fixed"><th class="py-space-sm pl-space-sm pr-space-sm font-bold" scope="row">New revenue</th><td class="py-space-sm px-space-sm tabular-nums" id="roi-addrev-mo"></td><td class="py-space-sm pl-space-sm tabular-nums" id="roi-addrev-yr"></td></tr>
           </tbody>
         </table>
       </div>
-      <p class="mt-space-md font-label-md text-label-md text-on-surface-variant font-normal italic">* Estimates only, not a guarantee. They assume your front desk spends about 20 minutes of phone time per scheduled appointment and 15 minutes per missed appointment, and that Dentivoice handles about half of it; that 15% of missed appointments are rebooked; that answering calls outside staffed hours books about 5% more appointments; and a typical monthly plan cost. Your results will vary.</p>
+      <p class="mt-space-md font-label-md text-label-md text-on-surface-variant font-normal italic">* Estimates only, not a guarantee. They assume about 1 in 5 missed calls becomes a booked appointment (not every missed call is a new patient), 15% of no-shows and cancellations get rebooked, and Dentivoice takes over about half of your front-desk phone time (20 minutes per appointment, 15 minutes per missed appointment). The return compares new revenue with a typical monthly plan cost. Revenue is what the visits bring in, not profit. Your results will vary.</p>
     </div>
   </div>
 </section>
@@ -879,14 +886,14 @@ switchScenario(0);
 
 // ---------- ROI calculator ----------
 const roiAnim = {};
-function roiShow(id, target, fmt){
+function roiShow(id, target, fmt, eps){
   const el = $(id);
   cancelAnimationFrame(roiAnim[id]);
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) { el.textContent = fmt(target); el._v = target; return; }
   let cur = el._v || 0;
   (function tick(){
     cur += (target - cur) * 0.2;
-    if (Math.abs(target - cur) < 0.5) cur = target;
+    if (Math.abs(target - cur) < (eps || 0.5)) cur = target;
     el._v = cur; el.textContent = fmt(cur);
     if (cur !== target) roiAnim[id] = requestAnimationFrame(tick);
   })();
@@ -894,27 +901,30 @@ function roiShow(id, target, fmt){
 function updateROI(){
   const num = (id, min, max) => { const v = parseFloat($(id).value); return Math.min(Math.max(isFinite(v) ? v : 0, min), max); };
   const weeks = num('roi-weeks', 1, 52), appts = num('roi-appts', 0, 5000), rate = num('roi-rate', 0, 1000), visit = num('roi-visit', 0, 100000);
-  const missed = Math.min(num('roi-missed', 0, 5000), appts);
+  const missedRaw = num('roi-missed', 0, 5000), missed = Math.min(missedRaw, appts), calls = num('roi-calls', 0, 5000);
+  $('roi-cap-note').classList.toggle('hidden', missedRaw <= appts);
   // Assumptions (also stated in the footnote under the table)
   const hrsWk = appts * (20 / 60) * 0.5 + missed * (15 / 60) * 0.5; // front-desk phone time Dentivoice takes over
-  const rebookedWk = missed * 0.15, newWk = appts * 0.05;
-  const extraWk = rebookedWk + newWk;
+  const callBookWk = calls * 0.20;   // 1 in 5 missed calls becomes a booked appointment
+  const rebookedWk = missed * 0.15;  // share of no-shows and cancellations rebooked
+  const extraWk = callBookWk + rebookedWk;
   const hrsYr = hrsWk * weeks, staffYr = hrsYr * rate, revYr = extraWk * visit * weeks;
-  const costYr = PLAN_PRICE * 12, roi = (revYr + staffYr - costYr) / costYr * 100;
+  const costYr = PLAN_PRICE * 12, multiple = revYr / costYr;  // return counts new revenue only, not staff time
   const usd = n => '$' + Math.round(n).toLocaleString('en-US');
   const r1 = n => Math.round(n * 10) / 10;
   const hrs = n => (n >= 100 ? Math.round(n) : r1(n)).toLocaleString('en-US') + ' hrs';
-  if (revYr + staffYr > 0) roiShow('roi-pct', roi, n => Math.round(n).toLocaleString('en-US') + '%');
+  if (revYr > 0) roiShow('roi-pct', multiple, n => n.toFixed(1) + 'x', 0.005);
   else { cancelAnimationFrame(roiAnim['roi-pct']); $('roi-pct').textContent = '\u2014'; $('roi-pct')._v = 0; }
   roiShow('roi-rev', revYr, usd);
   $('roi-hrs-mo').textContent = hrs(hrsYr / 12); $('roi-hrs-yr').textContent = hrs(hrsYr);
   $('roi-staff-mo').textContent = usd(staffYr / 12); $('roi-staff-yr').textContent = usd(staffYr);
   $('roi-addrev-mo').textContent = usd(revYr / 12); $('roi-addrev-yr').textContent = usd(revYr);
+  $('roi-callsbook').textContent = 'About ' + r1(callBookWk) + ' a week, from ' + calls + ' missed calls (1 in 5 booked)';
   $('roi-rebooked').textContent = 'About ' + r1(rebookedWk) + ' a week rebooked (15% of missed visits)';
-  $('roi-filled').textContent = appts ? 'About ' + r1(extraWk) + ' extra bookings a week, +' + r1(extraWk / appts * 100) + '% on your current schedule' : 'Enter your weekly appointments to see this';
-  $('roi-summary').textContent = roi > 0
-    ? 'At your current volume, Dentivoice is estimated to return about ' + Math.round(roi).toLocaleString('en-US') + '% of what it costs. It would take roughly ' + hrs(hrsYr / 12) + ' a month of phone work off your front desk (' + hrs(hrsYr) + ' a year), worth ' + usd(staffYr) + ' in labor. Rebooking missed visits and catching calls that would otherwise ring out could add around ' + r1(extraWk) + ' appointments a week, or an estimated ' + usd(revYr) + ' in new revenue each year.'
-    : 'With these numbers, the estimate does not cover the plan cost. Book a free call and we will look at your actual call volume together.';
+  $('roi-filled').textContent = appts ? 'About ' + r1(extraWk) + ' a week, +' + r1(extraWk / appts * 100) + '% on your current schedule' : 'About ' + r1(extraWk) + ' a week';
+  $('roi-summary').textContent = revYr >= costYr
+    ? 'Dentivoice could answer calls that would otherwise be lost and bring in about ' + r1(extraWk) + ' extra appointments a week: ' + r1(callBookWk) + ' from missed calls and ' + r1(rebookedWk) + ' from rebooked cancellations. That is roughly ' + usd(revYr) + ' in new revenue a year, or about $' + multiple.toFixed(2) + ' back for every $1 of plan cost. Your front desk also gets about ' + hrs(hrsYr / 12) + ' a month back, worth about ' + usd(staffYr) + ' a year in staff time, which is not counted in that return.'
+    : 'With these numbers, the estimated new revenue does not cover the plan cost. Book a free call and we will look at your actual call volume together.';
 }
 updateROI();
 
