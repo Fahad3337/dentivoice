@@ -28,7 +28,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&icon_names=add,arrow_forward,arrow_upward,calculate,calendar_month,call,call_split,chat,check_circle,chevron_left,chevron_right,close,description,emergency,event_available,groups,health_and_safety,help,menu,pause,payments,person,phone_in_talk,play_arrow,play_circle,print,progress_activity,record_voice_over,redeem,replay,schedule,support_agent,sync,task_alt,verified,verified_user,work&display=block">
 <!-- Compiled from src/input.css + tailwind.config.js. Rebuild after editing classes: npx tailwindcss@3 -i src/input.css -o assets/styles.css --minify -->
-<link rel="stylesheet" href="assets/styles.css?v=22">
+<link rel="stylesheet" href="assets/styles.css?v=23">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
 {
@@ -511,7 +511,7 @@
           </tbody>
         </table>
       </div>
-      <p class="mt-space-md font-label-md text-label-md text-on-surface-variant font-normal italic">* Estimates only, not a guarantee. They assume about 1 in 5 missed calls becomes a booked appointment (not every missed call is a new patient), 15% of no-shows and cancellations get rebooked, and Dentivoice takes over about half of your front-desk phone time (20 minutes per appointment, 15 minutes per missed appointment). The return compares new revenue with a typical monthly plan cost. Revenue is what the visits bring in, not profit. Your results will vary.</p>
+      <p class="mt-space-md font-label-md text-label-md text-on-surface-variant font-normal italic">* Estimates only, not a guarantee. They assume about 1 in 5 missed calls becomes a booked appointment (not every missed call is a new patient), 15% of no-shows and cancellations get rebooked, and Dentivoice takes over about half of your front-desk phone time (20 minutes per appointment, 15 minutes per missed appointment). Missed calls are counted across all 52 weeks, because calls keep coming when you are closed; staff time and rebooked cancellations use your open weeks. The return compares new revenue with a typical monthly plan cost. Revenue is what the visits bring in, not profit. Your results will vary.</p>
     </div>
   </div>
 </section>
@@ -907,8 +907,10 @@ function updateROI(){
   const hrsWk = appts * (20 / 60) * 0.5 + missed * (15 / 60) * 0.5; // front-desk phone time Dentivoice takes over
   const callBookWk = calls * 0.20;   // 1 in 5 missed calls becomes a booked appointment
   const rebookedWk = missed * 0.15;  // share of no-shows and cancellations rebooked
-  const extraWk = callBookWk + rebookedWk;
-  const hrsYr = hrsWk * weeks, staffYr = hrsYr * rate, revYr = extraWk * visit * weeks;
+  const callBookYr = callBookWk * 52;      // calls keep coming all year, including weeks the clinic is closed
+  const rebookedYr = rebookedWk * weeks;   // cancellations only happen in open weeks
+  const extraYr = callBookYr + rebookedYr;
+  const hrsYr = hrsWk * weeks, staffYr = hrsYr * rate, revYr = extraYr * visit;
   const costYr = PLAN_PRICE * 12, multiple = revYr / costYr;  // return counts new revenue only, not staff time
   const usd = n => '$' + Math.round(n).toLocaleString('en-US');
   const r1 = n => Math.round(n * 10) / 10;
@@ -919,11 +921,12 @@ function updateROI(){
   $('roi-hrs-mo').textContent = hrs(hrsYr / 12); $('roi-hrs-yr').textContent = hrs(hrsYr);
   $('roi-staff-mo').textContent = usd(staffYr / 12); $('roi-staff-yr').textContent = usd(staffYr);
   $('roi-addrev-mo').textContent = usd(revYr / 12); $('roi-addrev-yr').textContent = usd(revYr);
-  $('roi-callsbook').textContent = 'About ' + r1(callBookWk) + ' a week, from ' + calls + ' missed calls (1 in 5 booked)';
-  $('roi-rebooked').textContent = 'About ' + r1(rebookedWk) + ' a week rebooked (15% of missed visits)';
-  $('roi-filled').textContent = appts ? 'About ' + r1(extraWk) + ' a week, +' + r1(extraWk / appts * 100) + '% on your current schedule' : 'About ' + r1(extraWk) + ' a week';
+  const yr = n => Math.round(n).toLocaleString('en-US');
+  $('roi-callsbook').textContent = 'About ' + yr(callBookYr) + ' a year, from ' + calls + ' missed calls a week across all 52 weeks (1 in 5 booked)';
+  $('roi-rebooked').textContent = 'About ' + yr(rebookedYr) + ' a year rebooked (15% of missed visits in your open weeks)';
+  $('roi-filled').textContent = appts ? 'About ' + yr(extraYr) + ' a year, +' + r1(extraYr / (appts * weeks) * 100) + '% on your current bookings' : 'About ' + yr(extraYr) + ' a year';
   $('roi-summary').textContent = revYr >= costYr
-    ? 'Dentivoice could answer calls that would otherwise be lost and bring in about ' + r1(extraWk) + ' extra appointments a week: ' + r1(callBookWk) + ' from missed calls and ' + r1(rebookedWk) + ' from rebooked cancellations. That is roughly ' + usd(revYr) + ' in new revenue a year, or about $' + multiple.toFixed(2) + ' back for every $1 of plan cost. Your front desk also gets about ' + hrs(hrsYr / 12) + ' a month back, worth about ' + usd(staffYr) + ' a year in staff time, which is not counted in that return.'
+    ? 'Dentivoice could answer calls that would otherwise be lost, including calls that arrive while you are closed, and bring in about ' + yr(extraYr) + ' extra appointments a year: ' + yr(callBookYr) + ' from missed calls and ' + yr(rebookedYr) + ' from rebooked cancellations. That is roughly ' + usd(revYr) + ' in new revenue a year, or about $' + multiple.toFixed(2) + ' back for every $1 of plan cost. Your front desk also gets about ' + hrs(hrsYr / 12) + ' a month back, worth about ' + usd(staffYr) + ' a year in staff time, which is not counted in that return.'
     : 'With these numbers, the estimated new revenue does not cover the plan cost. Book a free call and we will look at your actual call volume together.';
 }
 updateROI();
